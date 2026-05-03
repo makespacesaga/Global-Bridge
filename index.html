@@ -68,8 +68,8 @@ body::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.2);border-radius:4px}
 .vc-h-title .l2{display:block;color:var(--accent-soft);font-weight:400}
 .vc-h-sub{margin-top:24px;font-size:16px;opacity:.85;max-width:52ch;line-height:1.6;margin-bottom:0}
 .vc-h-actions{display:flex;gap:10px;margin-top:28px}
-.vc-h-img{grid-column:span 4;grid-row:span 1;border-radius:24px;position:relative;overflow:hidden;background:linear-gradient(135deg,oklch(0.65 0.14 25),oklch(0.65 0.14 80))}
-.vc-h-img::after{content:'photo / hands together — 4:3';position:absolute;bottom:12px;left:16px;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.85);letter-spacing:.08em}
+.vc-h-img{grid-column:span 4;grid-row:span 1;border-radius:24px;position:relative;overflow:hidden;background:#1a1a1a}
+.vc-h-img img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 .noise{position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,0.06) 0 1px,transparent 1px 8px)}
 .vc-h-stat{grid-column:span 2;padding:22px;border-radius:24px;background:var(--panel);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between}
 .vc-h-stat .num{font-size:56px;line-height:1;letter-spacing:-0.04em;font-weight:500}
@@ -129,8 +129,8 @@ body::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.2);border-radius:4px}
 /* ── About ── */
 .vc-about{padding:24px 32px}
 .vc-about-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.vc-about-img-card{aspect-ratio:1/1;border-radius:18px;overflow:hidden;position:relative;background:linear-gradient(160deg,oklch(0.55 0.13 145),oklch(0.65 0.13 250))}
-.vc-about-img-card::after{content:'photo / portrait — 1:1';position:absolute;bottom:16px;left:16px;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.85);letter-spacing:.08em}
+.vc-about-img-card{aspect-ratio:1/1;border-radius:18px;overflow:hidden;position:relative;background:#e8e4df}
+.vc-about-img-card img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
 .vc-about-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:40px;display:flex;flex-direction:column;justify-content:space-between}
 .vc-about-card h2{font-size:48px;line-height:1.05;letter-spacing:-0.03em;margin:16px 0 24px;font-weight:500}
 .vc-about-card .body{font-size:15px;color:var(--ink-soft);line-height:1.8;white-space:pre-line}
@@ -244,12 +244,12 @@ const SITE = {
     jp: {
       eyebrow:"私たちについて",title:"境界を、橋に変える。",
       body:"グローバルブリッジは、佐賀県白石町を拠点に2024年に設立されたNPO法人です。教育・国際協力・環境保全・子どもの健全育成・平和推進・スポーツ振興など17の分野にわたり、地域社会と国際社会の双方に貢献することを使命としています。\n\n私たちが信じているのは、ひとつのちいさな出会いが、世界を動かすという事実です。佐賀の小さな町から世界へ、世界から佐賀へ。橋をかけ続けます。",
-      sig:"代表理事　○○ ○○"
+      sig:"代表理事　古賀久達"
     },
     en: {
       eyebrow:"About us",title:"Turning borders into bridges.",
       body:"Global Bridge is a nonprofit founded in 2024, based in Shiroishi-cho, Saga Prefecture. Across 17 fields — education, international cooperation, environment, child development, peace, sports — our mission is to contribute to local and global communities alike.\n\nWe believe a single small encounter can move the world. From a small town in Saga to the world, and back again. We keep building bridges.",
-      sig:"Representative Director  ○○ ○○"
+      sig:"Representative Director  Hisamichi Koga"
     }
   },
   cta: {
@@ -262,7 +262,7 @@ const SITE = {
       ["英文名","Global Bridge, Nonprofit Organization"],
       ["所在地","佐賀県杵島郡白石町"],
       ["設立","2024年"],
-      ["代表理事","○○ ○○"],
+      ["代表理事","古賀久達"],
       ["活動分野","保健医療福祉／社会教育／まちづくり／文化芸術スポーツ／環境／災害／地域安全／人権平和／国際協力／男女共同参画／子ども育成／情報化／科学技術／経済活性化／職業能力／消費者保護／中間支援"]
     ],
     en: [
@@ -270,7 +270,7 @@ const SITE = {
       ["Japanese","特定非営利活動法人グローバルブリッジ"],
       ["Location","Shiroishi-cho, Kishima-gun, Saga, Japan"],
       ["Founded","2024"],
-      ["Director","○○ ○○"],
+      ["Director","Hisamichi Koga"],
       ["Fields","Health & Welfare / Social Education / Community / Culture, Arts & Sports / Environment / Disaster Relief / Public Safety / Human Rights & Peace / International Cooperation / Gender Equality / Child Development / Information / Science & Technology / Economic Vitalization / Vocational / Consumer Protection / Intermediary Support"]
     ]
   },
@@ -347,7 +347,7 @@ function buildPage(lang) {
           </div>
         </div>
       </div>
-      <div class="vc-h-img" data-reveal data-reveal-delay="1"><div class="noise"></div></div>
+      <div class="vc-h-img" data-reveal data-reveal-delay="1"><img src="image/LINE_ALBUM_20240909_241011_11.jpg" alt="活動の様子"></div>
       <div class="vc-h-stat" data-reveal data-reveal-delay="2">
         <span class="lab">${lang==='jp'?'活動分野':'Fields'}</span>
         <span class="num">17</span>
@@ -423,7 +423,7 @@ function buildPage(lang) {
   </div>
   <section class="vc-about">
     <div class="vc-about-grid">
-      <div class="vc-about-img-card" data-reveal><div class="noise"></div></div>
+      <div class="vc-about-img-card" data-reveal><img src="image/01000092.png" alt="代表理事 古賀久達"></div>
       <div class="vc-about-card" data-reveal data-reveal-delay="2">
         <div>
           <div class="vc-sh-eye">${lang==='jp'?'代表挨拶':'Director'}</div>
