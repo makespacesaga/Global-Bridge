@@ -41,6 +41,22 @@ PRESETS = {
             "documentary style, shallow depth of field, high resolution"
         )
     },
+    "hero_bridge": {
+        "desc": "ヒーロー背景：国際架け橋（フィリピン・日本・世界）",
+        "file": "hero_bridge.jpg",
+        "size": "1536x1024",
+        "quality": "high",
+        "prompt": (
+            "Wide cinematic documentary photograph capturing the spirit of international humanitarian work "
+            "bridging Japan and the Philippines — Japanese volunteers and Filipino families standing together "
+            "in warm solidarity, children smiling, hands reaching across cultures, "
+            "lush tropical landscape with soft golden sunrise light, "
+            "a globe or world map softly blurred in background suggesting global connection, "
+            "NGO community outreach atmosphere, genuine human emotion, hopeful and inspiring, "
+            "photojournalism style, ultra high resolution, wide 3:2 format, "
+            "cinematic color grading with warm amber and green tones"
+        )
+    },
     "hero_ariake": {
         "desc": "ヒーロー画像・有明海（横長）",
         "file": "hero_ariake.jpg",
