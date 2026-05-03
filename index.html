@@ -60,11 +60,8 @@ a{color:inherit;text-decoration:none}
 ══════════════════════════════════════════ */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 var(--pad);height:68px;display:flex;align-items:center;justify-content:space-between;gap:32px;transition:background .3s,box-shadow .3s,backdrop-filter .3s}
 .nav.scrolled{background:rgba(250,250,248,.92);backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(0,0,0,.08)}
-.nav-logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.nav-logo-icon{width:38px;height:38px;background:var(--green-800);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.nav-logo-icon svg{width:22px;height:22px;stroke:#fff;fill:none}
-.nav-logo-text .en{font-family:var(--serif);font-size:15px;font-weight:600;color:var(--green-800);line-height:1.1;letter-spacing:-.01em}
-.nav-logo-text .jp{font-size:10px;color:var(--gray-500);letter-spacing:.12em;font-family:var(--mono)}
+.nav-logo{display:flex;align-items:center;flex-shrink:0}
+.nav-logo img{height:44px;width:auto;display:block}
 .nav-links{display:flex;gap:28px}
 .nav-links a{font-size:13px;font-weight:500;color:var(--gray-700);opacity:.85;transition:opacity .2s,color .2s}
 .nav-links a:hover{opacity:1;color:var(--green-800)}
@@ -327,15 +324,7 @@ function buildPage(lang){
   return `
   <nav class="nav" id="main-nav">
     <div class="nav-logo">
-      <div class="nav-logo-icon">
-        <svg viewBox="0 0 22 22" stroke-width="1.8">
-          <circle cx="8" cy="11" r="5"/><circle cx="14" cy="11" r="5"/>
-        </svg>
-      </div>
-      <div class="nav-logo-text">
-        <div class="en">${esc(S.brand[lang].name)}</div>
-        <div class="jp">${esc(S.brand[lang].suffix)}</div>
-      </div>
+      <img src="image/logo_banner.png" alt="グローバルブリッジ 特定非営利活動法人">
     </div>
     <nav class="nav-links">
       ${S.nav[lang].map(n=>`<a href="#">${esc(n)}</a>`).join('')}

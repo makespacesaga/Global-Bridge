@@ -177,7 +177,7 @@ def generate_image(api_key, prompt, size, quality, output_path):
         f.write(img_bytes)
 
     size_kb = len(img_bytes) // 1024
-    print(f"  ✓ 保存: {output_path}  ({size_kb} KB)")
+    print(f"  [OK] 保存: {output_path}  ({size_kb} KB)")
 
 
 # ── メイン ────────────────────────────────────────────────────────────────
