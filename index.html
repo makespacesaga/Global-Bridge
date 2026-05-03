@@ -139,11 +139,13 @@ body::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.2);border-radius:4px}
 /* ── Reports ── */
 .vc-reports{padding:12px 32px}
 .vc-reports-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.vc-report{padding:24px;border-radius:18px;background:var(--panel);border:1px solid var(--line);cursor:pointer;transition:transform .25s,border-color .25s;display:flex;flex-direction:column;gap:16px;min-height:220px}
+.vc-report{border-radius:18px;background:var(--panel);border:1px solid var(--line);cursor:pointer;transition:transform .25s,border-color .25s;display:flex;flex-direction:column;overflow:hidden;min-height:220px}
 .vc-report:hover{transform:translateY(-4px);border-color:var(--line-2)}
+.vc-report-thumb{width:100%;height:140px;object-fit:cover;object-position:center;display:block;flex-shrink:0}
+.vc-report-body{padding:20px;display:flex;flex-direction:column;gap:12px;flex:1}
 .vc-report-meta{display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--ink-soft);text-transform:uppercase}
 .vc-report-tag-pill{padding:4px 10px;border-radius:999px;background:var(--bg);border:1px solid var(--line)}
-.vc-report-title{font-size:17px;font-weight:500;line-height:1.4;letter-spacing:-0.005em;flex:1}
+.vc-report-title{font-size:16px;font-weight:500;line-height:1.4;letter-spacing:-0.005em;flex:1}
 .vc-report-foot{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--ink-soft)}
 
 /* ── CTA ── */
@@ -228,16 +230,16 @@ const SITE = {
   },
   reports: {
     jp: [
-      {date:"2026.04.18",tag:"国際協力",title:"ベトナム・メコンデルタ地域の学校建設プロジェクト 第二期着工"},
+      {date:"2026.04.18",tag:"国際協力",title:"ベトナム・メコンデルタ地域の学校建設プロジェクト 第二期着工",img:"image/LINE_ALBUM_20240909_241011_11.jpg"},
       {date:"2026.03.02",tag:"教育",title:"佐賀県内の高校生15名と海外大学生によるオンライン交流プログラム実施"},
-      {date:"2026.01.27",tag:"環境",title:"白石町・有明海沿岸 海岸清掃ボランティア 延べ240名参加"},
-      {date:"2025.12.10",tag:"子ども",title:"クリスマス・スポーツ交流イベント 多文化キッズデー開催レポート"}
+      {date:"2026.01.27",tag:"環境",title:"白石町・有明海沿岸 海岸清掃ボランティア 延べ240名参加",img:"image/LINE_ALBUM_20240909_241011_1.jpg"},
+      {date:"2025.12.10",tag:"子ども",title:"クリスマス・スポーツ交流イベント 多文化キッズデー開催レポート",img:"image/LINE_ALBUM_20240909_241011_4.jpg"}
     ],
     en: [
-      {date:"2026.04.18",tag:"International",title:"Vietnam Mekong Delta school construction — Phase II groundbreaking"},
+      {date:"2026.04.18",tag:"International",title:"Vietnam Mekong Delta school construction — Phase II groundbreaking",img:"image/LINE_ALBUM_20240909_241011_11.jpg"},
       {date:"2026.03.02",tag:"Education",title:"Online exchange program between 15 Saga high-schoolers and overseas university students"},
-      {date:"2026.01.27",tag:"Environment",title:"Coastal cleanup at Ariake Sea, Shiroishi-cho — 240 volunteers participated"},
-      {date:"2025.12.10",tag:"Children",title:"Christmas Sports & Multicultural Kids' Day — event report"}
+      {date:"2026.01.27",tag:"Environment",title:"Coastal cleanup at Ariake Sea, Shiroishi-cho — 240 volunteers participated",img:"image/LINE_ALBUM_20240909_241011_1.jpg"},
+      {date:"2025.12.10",tag:"Children",title:"Christmas Sports & Multicultural Kids' Day — event report",img:"image/LINE_ALBUM_20240909_241011_4.jpg"}
     ]
   },
   about: {
@@ -446,14 +448,17 @@ function buildPage(lang) {
     <div class="vc-reports-grid">
       ${S.reports[lang].map((r,i) => `
         <div class="vc-report" data-reveal data-reveal-delay="${i+1}">
-          <div class="vc-report-meta">
-            <span class="vc-report-tag-pill">${esc(r.tag)}</span>
-            <span>${esc(r.date)}</span>
-          </div>
-          <div class="vc-report-title">${esc(r.title)}</div>
-          <div class="vc-report-foot">
-            <span>${lang==='jp'?'レポートを読む':'Read'}</span>
-            <span>↗</span>
+          ${r.img ? `<img class="vc-report-thumb" src="${r.img}" alt="${esc(r.tag)}">` : ''}
+          <div class="vc-report-body">
+            <div class="vc-report-meta">
+              <span class="vc-report-tag-pill">${esc(r.tag)}</span>
+              <span>${esc(r.date)}</span>
+            </div>
+            <div class="vc-report-title">${esc(r.title)}</div>
+            <div class="vc-report-foot">
+              <span>${lang==='jp'?'レポートを読む':'Read'}</span>
+              <span>↗</span>
+            </div>
           </div>
         </div>`).join('')}
     </div>
