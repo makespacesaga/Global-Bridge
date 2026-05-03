@@ -198,6 +198,28 @@ PRESETS = {
             "raw authentic moment, no staging, no text anywhere in the image"
         )
     },
+    "purpose_activity_v2": {
+        "desc": "活動経緯イメージv2（コミュニティイベント）",
+        "file": "purpose_activity.jpg",
+        "size": "1024x1536",
+        "quality": "high",
+        "prompt": (
+            "Wide establishing documentary photograph, portrait orientation, vivid and uplifting. "
+            "An outdoor community event in a rural Southeast Asian village under large shade trees — "
+            "dozens of local children and adults joyfully receiving school supplies and books "
+            "from a group of Japanese and local organizers. "
+            "Children in the foreground hold up notebooks and pencils with beaming smiles. "
+            "Adults in the middle ground hand out colorful bags. "
+            "In the background, more villagers gather, curious and hopeful. "
+            "Late afternoon golden light filters through the canopy, casting warm dappled shadows. "
+            "The scene bursts with movement, color, laughter, and human warmth. "
+            "No text visible on clothing or banners. Plain casual clothes. "
+            "Color palette: lush tropical green, golden sunlight, bright clothing. "
+            "Mood: generosity, celebration, genuine joy, hope for the future. "
+            "f/4.0, natural light, slight elevated angle to show full scene, "
+            "portrait 2:3 ratio, publication quality, no artificial staging"
+        )
+    },
     "line_banner": {
         "desc": "LINEお問い合わせバナー",
         "file": "line_banner.png",
