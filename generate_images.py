@@ -47,14 +47,17 @@ PRESETS = {
         "size": "1536x1024",
         "quality": "high",
         "prompt": (
-            "Wide cinematic documentary photograph capturing the spirit of international humanitarian work "
-            "bridging Japan and the Philippines — Japanese volunteers and Filipino families standing together "
-            "in warm solidarity, children smiling, hands reaching across cultures, "
-            "lush tropical landscape with soft golden sunrise light, "
-            "a globe or world map softly blurred in background suggesting global connection, "
-            "NGO community outreach atmosphere, genuine human emotion, hopeful and inspiring, "
-            "photojournalism style, ultra high resolution, wide 3:2 format, "
-            "cinematic color grading with warm amber and green tones"
+            "Award-winning photojournalism photograph, published in National Geographic. "
+            "A Japanese female NGO volunteer kneels down and gently holds the hands of a young Filipino girl, "
+            "both smiling with profound warmth, surrounded by a lush tropical village. "
+            "Other volunteers and local community members work together in the soft-focus background — "
+            "building, sharing, laughing. "
+            "Late afternoon golden hour light cascades through palm fronds, casting long warm shadows. "
+            "Shallow depth of field, f/1.8 bokeh background of a rural Philippine community. "
+            "Colors: warm amber, deep emerald green, rich earth tones. "
+            "Mood: hope, solidarity, genuine human connection across cultures. "
+            "No text, no logos. Ultra-sharp, professional editorial photography, 35mm film aesthetic, "
+            "cinematic widescreen 3:2 ratio, breathtaking quality"
         )
     },
     "hero_ariake": {
@@ -147,13 +150,17 @@ PRESETS = {
         "size": "1536x1024",
         "quality": "high",
         "prompt": (
-            "Powerful wide cinematic photograph representing the founding spirit of an international NPO. "
-            "Silhouettes of diverse people — Japanese, Filipino, and other Asian nationalities — standing together "
-            "on a bridge at golden sunset, arms outstretched, facing a vast horizon of ocean and sky. "
-            "Warm amber and deep teal color palette, dramatic rays of light breaking through clouds, "
-            "sense of hope, solidarity, and global mission. "
-            "Documentary photojournalism style, ultra high resolution, cinematic widescreen, "
-            "deeply emotional and visually stunning, suitable as a dark overlay background"
+            "Breathtaking cinematic landscape photograph at dusk. "
+            "An ancient stone bridge arches over a calm river, reflecting the burning orange and purple sky. "
+            "On the bridge, silhouettes of five to six people from different backgrounds — "
+            "Japanese, Filipino, African, European — walk together toward the horizon. "
+            "One person carries a child on their back. "
+            "Dramatic god rays pierce through storm clouds, illuminating the bridge from above. "
+            "Foreground: shallow water with mirror-like reflection. "
+            "Color palette: deep navy, burnt orange, golden amber, dark forest green. "
+            "Atmosphere: timeless, monumental, deeply moving, like the opening shot of an Oscar-winning film. "
+            "Ultra-wide cinematic 3:2, extremely high detail, no text, no logos, "
+            "suitable as a dark-overlay background for a nonprofit website header"
         )
     },
     "purpose_activity": {
@@ -162,13 +169,18 @@ PRESETS = {
         "size": "1024x1536",
         "quality": "high",
         "prompt": (
-            "Authentic documentary photograph of Japanese NGO volunteers working in a rural Philippine village — "
-            "building a school classroom together with local community members, "
-            "children watching with bright curious eyes, "
-            "local women passing materials, Japanese volunteers smiling alongside Filipino families, "
-            "lush green tropical landscape, soft natural daylight filtering through palm trees, "
-            "genuine human connection, powerful humanitarian moment, "
-            "photojournalism style, rich natural colors, high contrast, portrait orientation"
+            "Powerful documentary photograph, portrait orientation, published quality. "
+            "Inside a newly built school classroom in a rural Philippine village: "
+            "A young Japanese male volunteer sits at a low desk beside three Filipino elementary school children, "
+            "guiding them through a lesson with a handwritten notebook open between them. "
+            "The children lean in with intense curiosity and delight. "
+            "Afternoon light streams through an open window, casting a warm glow across their faces. "
+            "The classroom walls show children's drawings and a world map. "
+            "Through the window: lush green tropical mountains and a clear blue sky. "
+            "Color palette: warm golden tones, deep greens, rich skin tones. "
+            "Mood: transformative, intimate, full of possibility. "
+            "35mm documentary photography, f/2.0, natural light only, "
+            "no flash, no staged poses — raw human truth, portrait 2:3 ratio, exceptional quality"
         )
     },
     "line_banner": {
@@ -203,7 +215,7 @@ PRESETS = {
 # ── API 呼び出し ───────────────────────────────────────────────────────────
 def generate_image(api_key, prompt, size, quality, output_path):
     body = json.dumps({
-        "model": "gpt-image-1",
+        "model": "gpt-image-2",
         "prompt": prompt,
         "n": 1,
         "size": size,
@@ -221,7 +233,7 @@ def generate_image(api_key, prompt, size, quality, output_path):
 
     print(f"  → API 呼び出し中... ({size}, quality={quality})")
     try:
-        with urllib.request.urlopen(req, timeout=120) as resp:
+        with urllib.request.urlopen(req, timeout=180) as resp:
             result = json.loads(resp.read())
     except urllib.error.HTTPError as e:
         detail = e.read().decode()
@@ -250,7 +262,7 @@ def main():
     parser.add_argument("--size", default="1536x1024",
                         choices=["1024x1024", "1536x1024", "1024x1536"],
                         help="画像サイズ")
-    parser.add_argument("--quality", default="high", choices=["standard", "high"],
+    parser.add_argument("--quality", default="high", choices=["low", "medium", "high", "auto"],
                         help="画質")
     args = parser.parse_args()
 
