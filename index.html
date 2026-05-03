@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NPO法人グローバルブリッジ — 境界を、橋に変える。</title>
+<meta name="description" content="佐賀から世界へ。教育・国際協力・環境保全・子どもの健全育成・平和推進を通じて、誰も取り残さない未来を築きます。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Noto+Sans+JP:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+:root{
+  --bg:#fafaf7;--panel:#ffffff;--ink:#111111;--ink-soft:#555555;
+  --line:rgba(17,17,17,0.1);--line-2:rgba(17,17,17,0.18);
+  --accent:oklch(0.65 0.16 145);--accent-soft:oklch(0.94 0.04 145);
+  --hf:'Inter','Zen Kaku Gothic New',system-ui,sans-serif;
+  --parallax-offset:0px;
+}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,system-ui,'Noto Sans JP',sans-serif;overflow-x:hidden;font-feature-settings:"palt","ss01";line-height:1.6;letter-spacing:-0.005em}
+body::-webkit-scrollbar{width:8px}
+body::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.2);border-radius:4px}
+[data-reveal]{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+[data-reveal][data-revealed]{opacity:1;transform:none}
+[data-reveal-delay="1"]{transition-delay:.06s}
+[data-reveal-delay="2"]{transition-delay:.12s}
+[data-reveal-delay="3"]{transition-delay:.18s}
+[data-reveal-delay="4"]{transition-delay:.24s}
+
+/* ── Nav ── */
+.vc-nav{position:sticky;top:0;z-index:50;padding:16px 32px;display:grid;grid-template-columns:280px 1fr auto;gap:24px;align-items:center;background:transparent;backdrop-filter:blur(20px) saturate(1.4);border-bottom:1px solid transparent;transition:background .3s,border-color .3s}
+.vc-nav.scrolled{background:rgba(250,250,247,0.85);border-bottom-color:var(--line)}
+.vc-logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.vc-logo svg{width:36px;height:36px;flex-shrink:0}
+.vc-logo .name{font-size:15px;font-weight:600;letter-spacing:-0.01em;line-height:1.1}
+.vc-logo .sub{display:block;font-size:9px;letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase;font-family:'JetBrains Mono',monospace;margin-top:2px}
+.vc-nav-mid{display:flex;gap:24px;justify-content:center}
+.vc-nav-mid a{color:var(--ink);text-decoration:none;font-size:13px;font-weight:500;cursor:pointer;opacity:.8}
+.vc-nav-mid a:hover{opacity:1}
+.vc-nav-r{display:flex;gap:12px;align-items:center}
+.vc-lang{display:inline-flex;padding:3px;background:var(--panel);border:1px solid var(--line);border-radius:8px;font-size:11px;font-family:'JetBrains Mono',monospace}
+.vc-lang button{background:transparent;border:none;padding:4px 10px;cursor:pointer;color:var(--ink-soft);font-family:inherit;font-size:inherit;border-radius:6px}
+.vc-lang button.on{background:var(--ink);color:var(--bg)}
+.vc-cta-nav{background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:8px;font-size:13px;font-weight:500;text-decoration:none;cursor:pointer;transition:background .2s;display:inline-flex;align-items:center;gap:6px}
+.vc-cta-nav:hover{background:oklch(0.3 0.04 250)}
+.vc-pulse{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:vc-pulse 2s infinite;flex-shrink:0}
+@keyframes vc-pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* ── Buttons ── */
+.vc-btn{padding:12px 18px;border-radius:10px;font-size:13px;font-weight:500;text-decoration:none;cursor:pointer;transition:transform .2s,background .2s;display:inline-flex;align-items:center;gap:8px;border:1px solid transparent}
+.vc-btn-pri{background:var(--bg);color:var(--ink)}
+.vc-btn-pri:hover{transform:translateY(-1px)}
+.vc-btn-sec{background:transparent;color:var(--bg);border-color:rgba(255,255,255,0.3)}
+.vc-btn-sec:hover{background:rgba(255,255,255,0.1)}
+
+/* ── Hero ── */
+.vc-hero{padding:12px 32px}
+.vc-hero-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:380px 180px;gap:12px}
+.vc-h-main{grid-column:span 8;grid-row:span 2;padding:40px;background:var(--ink);color:var(--bg);border-radius:24px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;border:1px solid transparent}
+.vc-h-main::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 90% 20%,oklch(0.55 0.15 25 / 0.5),transparent 60%),radial-gradient(ellipse 60% 50% at 10% 90%,oklch(0.55 0.16 250 / 0.5),transparent 60%),radial-gradient(ellipse 50% 40% at 60% 60%,oklch(0.65 0.14 145 / 0.3),transparent 60%);transform:translateY(var(--parallax-offset));pointer-events:none}
+.vc-h-meta{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;opacity:.7;display:flex;gap:24px;position:relative;z-index:1;text-transform:uppercase}
+.vc-h-title-wrap{position:relative;z-index:1}
+.vc-h-eye{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;opacity:.8;margin-bottom:24px;display:inline-flex;align-items:center;gap:8px}
+.vc-h-eye::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.vc-h-title{font-family:var(--hf);font-size:clamp(48px,5vw,88px);line-height:1;letter-spacing:-0.04em;margin:0;font-weight:500}
+.vc-h-title .l1{display:block}
+.vc-h-title .l2{display:block;color:var(--accent-soft);font-weight:400}
+.vc-h-sub{margin-top:24px;font-size:16px;opacity:.85;max-width:52ch;line-height:1.6;margin-bottom:0}
+.vc-h-actions{display:flex;gap:10px;margin-top:28px}
+.vc-h-img{grid-column:span 4;grid-row:span 1;border-radius:24px;position:relative;overflow:hidden;background:linear-gradient(135deg,oklch(0.65 0.14 25),oklch(0.65 0.14 80))}
+.vc-h-img::after{content:'photo / hands together — 4:3';position:absolute;bottom:12px;left:16px;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.85);letter-spacing:.08em}
+.noise{position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,0.06) 0 1px,transparent 1px 8px)}
+.vc-h-stat{grid-column:span 2;padding:22px;border-radius:24px;background:var(--panel);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between}
+.vc-h-stat .num{font-size:56px;line-height:1;letter-spacing:-0.04em;font-weight:500}
+.vc-h-stat .lab{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase}
+.vc-h-cta-card{grid-column:span 2;padding:22px;border-radius:24px;background:var(--accent-soft);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:background .2s;text-decoration:none;color:var(--ink)}
+.vc-h-cta-card:hover{background:oklch(0.9 0.06 145)}
+.vc-h-cta-card .lab{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.vc-h-cta-card .ttl{font-size:18px;font-weight:500;line-height:1.2;letter-spacing:-0.01em}
+.vc-h-cta-card .arr{align-self:flex-end;font-size:22px}
+
+/* ── Marquee ── */
+.vc-marquee{padding:12px 32px}
+.vc-marquee-inner{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px 0;overflow:hidden;white-space:nowrap}
+.vc-marquee-track{display:inline-flex;gap:36px;animation:vc-mq 40s linear infinite;font-size:13px;font-weight:500}
+@keyframes vc-mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.vc-marquee-track .item{display:inline-flex;gap:8px;align-items:center}
+.vc-marquee-track .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.vc-marquee-track .sep{color:var(--ink-soft)}
+
+/* ── Stats ── */
+.vc-stats{padding:12px 32px}
+.vc-stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.vc-stat-card{padding:24px;border-radius:18px;background:var(--panel);border:1px solid var(--line)}
+.vc-stat-card .num{font-size:64px;line-height:1;letter-spacing:-0.04em;font-weight:500}
+.vc-stat-card .lab{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--ink-soft);margin-top:8px;text-transform:uppercase}
+
+/* ── Section header ── */
+.vc-sh{padding:60px 32px 24px;display:flex;justify-content:space-between;align-items:end;gap:32px}
+.vc-sh-l{max-width:60ch}
+.vc-sh-eye{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase;display:inline-flex;gap:8px;align-items:center}
+.vc-sh-eye::before{content:'';width:6px;height:6px;border-radius:2px;background:var(--ink)}
+.vc-sh-title{font-family:var(--hf);font-size:44px;line-height:1.05;letter-spacing:-0.03em;margin:12px 0 0;font-weight:500}
+.vc-sh-aside{font-size:14px;color:var(--ink-soft);max-width:36ch;line-height:1.6}
+
+/* ── Programs ── */
+.vc-progs{padding:12px 32px}
+.vc-progs-grid{display:grid;grid-template-columns:360px 1fr;gap:12px}
+.vc-progs-list{display:flex;flex-direction:column;gap:8px}
+.vc-prog-item{padding:18px 20px;border-radius:14px;background:var(--panel);border:1px solid var(--line);cursor:pointer;transition:background .25s,transform .25s;display:flex;align-items:center;gap:14px}
+.vc-prog-item:hover{transform:translateX(4px)}
+.vc-prog-item.active{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.vc-prog-item .num{font-family:'JetBrains Mono',monospace;font-size:11px;opacity:.6;min-width:28px}
+.vc-prog-item .swatch{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.vc-prog-item .ttl{font-size:16px;font-weight:500;flex:1}
+.vc-prog-item .arr{font-size:16px;opacity:.5}
+.vc-prog-item.active .arr{opacity:1}
+.vc-prog-detail{padding:40px;border-radius:18px;position:relative;overflow:hidden;color:white;min-height:480px;display:flex;flex-direction:column;justify-content:space-between;transition:background .4s ease}
+.vc-prog-detail::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 80% 20%,rgba(255,255,255,0.18),transparent 60%);pointer-events:none}
+.vc-prog-detail-top{position:relative;z-index:1;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.9}
+.vc-prog-detail-mid{position:relative;z-index:1;max-width:720px}
+.vc-prog-detail-mid .ttl{font-size:64px;line-height:1.05;letter-spacing:-0.03em;font-weight:500;margin:0 0 20px}
+.vc-prog-detail-mid .body{font-size:18px;line-height:1.6;opacity:.9;max-width:56ch}
+.vc-prog-detail-bot{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:end}
+.vc-prog-detail .vc-btn{background:rgba(255,255,255,0.15);color:white;border-color:rgba(255,255,255,0.3);backdrop-filter:blur(10px)}
+.vc-prog-detail .vc-btn:hover{background:rgba(255,255,255,0.25)}
+
+/* ── About ── */
+.vc-about{padding:24px 32px}
+.vc-about-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.vc-about-img-card{aspect-ratio:1/1;border-radius:18px;overflow:hidden;position:relative;background:linear-gradient(160deg,oklch(0.55 0.13 145),oklch(0.65 0.13 250))}
+.vc-about-img-card::after{content:'photo / portrait — 1:1';position:absolute;bottom:16px;left:16px;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.85);letter-spacing:.08em}
+.vc-about-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:40px;display:flex;flex-direction:column;justify-content:space-between}
+.vc-about-card h2{font-size:48px;line-height:1.05;letter-spacing:-0.03em;margin:16px 0 24px;font-weight:500}
+.vc-about-card .body{font-size:15px;color:var(--ink-soft);line-height:1.8;white-space:pre-line}
+.vc-about-card .sig{margin-top:24px;font-size:14px;font-family:'JetBrains Mono',monospace;letter-spacing:.04em}
+
+/* ── Reports ── */
+.vc-reports{padding:12px 32px}
+.vc-reports-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.vc-report{padding:24px;border-radius:18px;background:var(--panel);border:1px solid var(--line);cursor:pointer;transition:transform .25s,border-color .25s;display:flex;flex-direction:column;gap:16px;min-height:220px}
+.vc-report:hover{transform:translateY(-4px);border-color:var(--line-2)}
+.vc-report-meta{display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--ink-soft);text-transform:uppercase}
+.vc-report-tag-pill{padding:4px 10px;border-radius:999px;background:var(--bg);border:1px solid var(--line)}
+.vc-report-title{font-size:17px;font-weight:500;line-height:1.4;letter-spacing:-0.005em;flex:1}
+.vc-report-foot{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--ink-soft)}
+
+/* ── CTA ── */
+.vc-cta-section{padding:24px 32px}
+.vc-cta-card{padding:64px;border-radius:24px;position:relative;overflow:hidden;background:var(--ink);color:var(--bg);display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:end}
+.vc-cta-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 40% 60% at 80% 20%,oklch(0.55 0.15 25 / 0.6),transparent 60%),radial-gradient(ellipse 50% 50% at 10% 80%,oklch(0.55 0.15 250 / 0.6),transparent 60%);pointer-events:none}
+.vc-cta-card>*{position:relative;z-index:1}
+.vc-cta-card h2{font-size:64px;line-height:1.05;letter-spacing:-0.03em;margin:16px 0 24px;font-weight:500}
+.vc-cta-card .body{font-size:17px;opacity:.85;max-width:48ch;line-height:1.6}
+.vc-cta-actions{display:flex;flex-direction:column;gap:10px}
+.vc-cta-card .vc-btn-pri{background:var(--bg);color:var(--ink)}
+.vc-cta-card .vc-btn-sec{background:transparent;color:var(--bg);border-color:rgba(255,255,255,0.3)}
+
+/* ── Org ── */
+.vc-org{padding:12px 32px}
+.vc-org-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.vc-org-card{padding:24px;border-radius:18px;background:var(--panel);border:1px solid var(--line)}
+.vc-org-card.col3{grid-column:span 3}
+.vc-org-card.col6{grid-column:span 6}
+.vc-org-card .k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:8px}
+.vc-org-card .v{font-size:18px;font-weight:500;line-height:1.3;letter-spacing:-0.01em}
+.vc-org-card.col6 .v{font-size:14px;font-weight:400;line-height:1.7;color:var(--ink-soft)}
+
+/* ── Footer ── */
+.vc-footer{padding:60px 32px 24px}
+.vc-footer-card{padding:48px;border-radius:24px;background:var(--ink);color:var(--bg)}
+.vc-footer-tag{font-size:clamp(48px,6vw,96px);line-height:1;letter-spacing:-0.03em;font-weight:500}
+.vc-footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:40px;padding-top:48px;margin-top:48px;border-top:1px solid rgba(255,255,255,0.15)}
+.vc-footer-col h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-family:'JetBrains Mono',monospace;margin:0 0 16px;opacity:.7}
+.vc-footer-col p,.vc-footer-col a{font-size:13px;margin:0 0 8px;text-decoration:none;color:var(--bg);display:block;opacity:.85}
+.vc-footer-col a:hover{opacity:1}
+.vc-footer-bottom{padding-top:32px;margin-top:48px;border-top:1px solid rgba(255,255,255,0.15);display:flex;justify-content:space-between;font-size:11px;font-family:'JetBrains Mono',monospace;letter-spacing:.1em;opacity:.65}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const SITE = {
+  brand: {
+    jp: { name: "グローバルブリッジ", suffix: "特定非営利活動法人" },
+    en: { name: "Global Bridge", suffix: "Nonprofit Organization" }
+  },
+  nav: {
+    jp: ["私たちについて","事業内容","活動レポート","法人概要","お問い合わせ"],
+    en: ["About","Programs","Reports","Organization","Contact"]
+  },
+  hero: {
+    jp: {
+      eyebrow: "Building bridges across the world ─ since 2024",
+      title1: "支え合いから、",
+      title2: "持続可能な社会へ。",
+      sub: "佐賀から世界へ。教育・国際協力・環境保全・子どもの健全育成・平和推進を通じて、誰も取り残さない未来を築きます。",
+      ctaPrimary: "支援する", ctaSecondary: "活動を知る"
+    },
+    en: {
+      eyebrow: "Building bridges across the world ─ since 2024",
+      title1: "From mutual support",
+      title2: "to a sustainable world.",
+      sub: "From Saga to the world. Through education, international cooperation, environmental conservation, child development, and peace promotion — we leave no one behind.",
+      ctaPrimary: "Support us", ctaSecondary: "Our work"
+    }
+  },
+  stats: {
+    jp: [{num:"17",label:"活動分野"},{num:"5",label:"重点事業領域"},{num:"1",label:"拠点 / 佐賀"},{num:"∞",label:"つなげる人々"}],
+    en: [{num:"17",label:"Activity fields"},{num:"5",label:"Focus areas"},{num:"1",label:"Base / Saga"},{num:"∞",label:"People connected"}]
+  },
+  programs: {
+    jp: [
+      {code:"01",tag:"Education",title:"教育・人材育成",body:"国際交流、留学支援、IT・職業訓練、経営者教育まで、学びの機会を世界に広げます。",hue:250},
+      {code:"02",tag:"International",title:"国際協力",body:"貧困地域での学校設立、災害支援、フェアトレード推進。現地と並走するパートナーシップを。",hue:25},
+      {code:"03",tag:"Environment",title:"環境保全",body:"気候変動・生態系保全に取り組み、地域から地球規模の課題へ実践でアプローチ。",hue:145},
+      {code:"04",tag:"Children",title:"子ども・若者育成",body:"スポーツ・文化・健全育成プログラムを通じ、次世代の可能性を解き放ちます。",hue:55},
+      {code:"05",tag:"Peace",title:"平和・人権・参画",body:"人権の擁護、男女共同参画、平和啓発。多様な声が響き合う社会へ。",hue:310}
+    ],
+    en: [
+      {code:"01",tag:"Education",title:"Education",body:"Exchange, study abroad, IT and vocational training, executive education — expanding learning across borders.",hue:250},
+      {code:"02",tag:"International",title:"International Cooperation",body:"Building schools in underserved regions, disaster relief, fair trade — partnerships that walk alongside.",hue:25},
+      {code:"03",tag:"Environment",title:"Environment",body:"From climate to biodiversity — working from local communities to planetary challenges.",hue:145},
+      {code:"04",tag:"Children",title:"Children & Youth",body:"Sports, culture, and development programs unlocking the next generation's potential.",hue:55},
+      {code:"05",tag:"Peace",title:"Peace & Rights",body:"Human rights, gender equality, peace education — a society where every voice resonates.",hue:310}
+    ]
+  },
+  reports: {
+    jp: [
+      {date:"2026.04.18",tag:"国際協力",title:"ベトナム・メコンデルタ地域の学校建設プロジェクト 第二期着工"},
+      {date:"2026.03.02",tag:"教育",title:"佐賀県内の高校生15名と海外大学生によるオンライン交流プログラム実施"},
+      {date:"2026.01.27",tag:"環境",title:"白石町・有明海沿岸 海岸清掃ボランティア 延べ240名参加"},
+      {date:"2025.12.10",tag:"子ども",title:"クリスマス・スポーツ交流イベント 多文化キッズデー開催レポート"}
+    ],
+    en: [
+      {date:"2026.04.18",tag:"International",title:"Vietnam Mekong Delta school construction — Phase II groundbreaking"},
+      {date:"2026.03.02",tag:"Education",title:"Online exchange program between 15 Saga high-schoolers and overseas university students"},
+      {date:"2026.01.27",tag:"Environment",title:"Coastal cleanup at Ariake Sea, Shiroishi-cho — 240 volunteers participated"},
+      {date:"2025.12.10",tag:"Children",title:"Christmas Sports & Multicultural Kids' Day — event report"}
+    ]
+  },
+  about: {
+    jp: {
+      eyebrow:"私たちについて",title:"境界を、橋に変える。",
+      body:"グローバルブリッジは、佐賀県白石町を拠点に2024年に設立されたNPO法人です。教育・国際協力・環境保全・子どもの健全育成・平和推進・スポーツ振興など17の分野にわたり、地域社会と国際社会の双方に貢献することを使命としています。\n\n私たちが信じているのは、ひとつのちいさな出会いが、世界を動かすという事実です。佐賀の小さな町から世界へ、世界から佐賀へ。橋をかけ続けます。",
+      sig:"代表理事　○○ ○○"
+    },
+    en: {
+      eyebrow:"About us",title:"Turning borders into bridges.",
+      body:"Global Bridge is a nonprofit founded in 2024, based in Shiroishi-cho, Saga Prefecture. Across 17 fields — education, international cooperation, environment, child development, peace, sports — our mission is to contribute to local and global communities alike.\n\nWe believe a single small encounter can move the world. From a small town in Saga to the world, and back again. We keep building bridges.",
+      sig:"Representative Director  ○○ ○○"
+    }
+  },
+  cta: {
+    jp:{title:"あなたの一歩が、誰かの未来になる。",body:"個人寄付・企業協賛・ボランティア参加・連携協働。関わり方は様々です。",primary:"寄付する",secondary:"ボランティア登録"},
+    en:{title:"Your step becomes someone's future.",body:"Donations, corporate partnerships, volunteering, collaboration — there are many ways to take part.",primary:"Donate",secondary:"Volunteer"}
+  },
+  org: {
+    jp: [
+      ["名称","特定非営利活動法人グローバルブリッジ"],
+      ["英文名","Global Bridge, Nonprofit Organization"],
+      ["所在地","佐賀県杵島郡白石町"],
+      ["設立","2024年"],
+      ["代表理事","○○ ○○"],
+      ["活動分野","保健医療福祉／社会教育／まちづくり／文化芸術スポーツ／環境／災害／地域安全／人権平和／国際協力／男女共同参画／子ども育成／情報化／科学技術／経済活性化／職業能力／消費者保護／中間支援"]
+    ],
+    en: [
+      ["Name","Global Bridge, Nonprofit Organization"],
+      ["Japanese","特定非営利活動法人グローバルブリッジ"],
+      ["Location","Shiroishi-cho, Kishima-gun, Saga, Japan"],
+      ["Founded","2024"],
+      ["Director","○○ ○○"],
+      ["Fields","Health & Welfare / Social Education / Community / Culture, Arts & Sports / Environment / Disaster Relief / Public Safety / Human Rights & Peace / International Cooperation / Gender Equality / Child Development / Information / Science & Technology / Economic Vitalization / Vocational / Consumer Protection / Intermediary Support"]
+    ]
+  },
+  footer: {
+    jp:{tag:"Bridges, everywhere.",contact:"お問い合わせ",address:"佐賀県杵島郡白石町",copy:"© 2026 Global Bridge NPO. All rights reserved."},
+    en:{tag:"Bridges, everywhere.",contact:"Contact",address:"Shiroishi-cho, Kishima-gun, Saga, Japan",copy:"© 2026 Global Bridge NPO. All rights reserved."}
+  }
+};
+
+let state = { lang:'jp', activeProgIdx:0 };
+let removeScroll = null;
+
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function buildPage(lang) {
+  const S = SITE;
+  const h = S.hero[lang];
+  const progs = S.programs[lang];
+  const ap = progs[state.activeProgIdx];
+  const about = S.about[lang];
+  const ctaD = S.cta[lang];
+  const footerD = S.footer[lang];
+
+  const mqItems = progs.map(p =>
+    `<span class="item"><span class="dot" style="background:oklch(0.62 0.14 ${p.hue})"></span>${esc(p.title)}<span class="sep">/</span></span>`
+  ).join('');
+
+  const orgRows = S.org[lang];
+
+  return `
+  <nav class="vc-nav" id="main-nav">
+    <a href="#" class="vc-logo">
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0.5" y="0.5" width="35" height="35" rx="9" stroke="currentColor"/>
+        <circle cx="13" cy="18" r="6" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="23" cy="18" r="6" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+      <div>
+        <div class="name">${esc(S.brand[lang].name)}</div>
+        <span class="sub">${esc(S.brand[lang].suffix)}</span>
+      </div>
+    </a>
+    <div class="vc-nav-mid">
+      ${S.nav[lang].map(n => `<a href="#">${esc(n)}</a>`).join('')}
+    </div>
+    <div class="vc-nav-r">
+      <div class="vc-lang">
+        <button class="lang-btn${lang==='jp'?' on':''}" data-lang="jp">JP</button>
+        <button class="lang-btn${lang==='en'?' on':''}" data-lang="en">EN</button>
+      </div>
+      <a href="#" class="vc-cta-nav"><span class="vc-pulse"></span>${esc(h.ctaPrimary)}</a>
+    </div>
+  </nav>
+
+  <section class="vc-hero">
+    <div class="vc-hero-grid">
+      <div class="vc-h-main" data-reveal>
+        <div class="vc-h-meta">
+          <span>NPO · 2024 — 2026</span>
+          <span>SAGA / JAPAN — WORLDWIDE</span>
+        </div>
+        <div class="vc-h-title-wrap">
+          <div class="vc-h-eye">${esc(h.eyebrow)}</div>
+          <h1 class="vc-h-title">
+            <span class="l1">${esc(h.title1)}</span>
+            <span class="l2">${esc(h.title2)}</span>
+          </h1>
+          <p class="vc-h-sub">${esc(h.sub)}</p>
+          <div class="vc-h-actions">
+            <a href="#" class="vc-btn vc-btn-pri">${esc(h.ctaPrimary)} →</a>
+            <a href="#" class="vc-btn vc-btn-sec">${esc(h.ctaSecondary)}</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc-h-img" data-reveal data-reveal-delay="1"><div class="noise"></div></div>
+      <div class="vc-h-stat" data-reveal data-reveal-delay="2">
+        <span class="lab">${lang==='jp'?'活動分野':'Fields'}</span>
+        <span class="num">17</span>
+      </div>
+      <a href="#" class="vc-h-cta-card" data-reveal data-reveal-delay="3">
+        <span class="lab">${lang==='jp'?'参加する':'Join'}</span>
+        <div>
+          <div class="ttl">${lang==='jp'?'ボランティア募集中':'Volunteers welcome'}</div>
+          <span class="arr">→</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="vc-marquee">
+    <div class="vc-marquee-inner">
+      <div class="vc-marquee-track">${mqItems}${mqItems}</div>
+    </div>
+  </section>
+
+  <section class="vc-stats">
+    <div class="vc-stats-grid">
+      ${S.stats[lang].map((s,i) => `
+        <div class="vc-stat-card" data-reveal data-reveal-delay="${i+1}">
+          <div class="num">${esc(s.num)}</div>
+          <div class="lab">${esc(s.label)}</div>
+        </div>`).join('')}
+    </div>
+  </section>
+
+  <div class="vc-sh">
+    <div class="vc-sh-l" data-reveal>
+      <div class="vc-sh-eye">${lang==='jp'?'事業内容 / Programs':'Programs / 05'}</div>
+      <h2 class="vc-sh-title">${lang==='jp'?'5つの重点領域。':'Five focus areas.'}</h2>
+    </div>
+    <div class="vc-sh-aside" data-reveal data-reveal-delay="2">
+      ${lang==='jp'?'定款に定める17分野を、5つの主軸へと束ねた重点プログラム。クリックで詳細を切替。':'Our 17 chartered fields, woven into five focus programs. Click any to view detail.'}
+    </div>
+  </div>
+  <section class="vc-progs">
+    <div class="vc-progs-grid">
+      <div class="vc-progs-list">
+        ${progs.map((p,i) => `
+          <div class="vc-prog-item${i===state.activeProgIdx?' active':''}" data-prog="${i}">
+            <span class="num">${esc(p.code)}</span>
+            <span class="swatch" style="background:oklch(0.62 0.14 ${p.hue})"></span>
+            <span class="ttl">${esc(p.title)}</span>
+            <span class="arr">→</span>
+          </div>`).join('')}
+      </div>
+      <div class="vc-prog-detail" id="prog-detail" style="background:oklch(0.42 0.14 ${ap.hue})">
+        <div class="vc-prog-detail-top">
+          <span id="pd-code">—— ${esc(ap.code)} / ${esc(ap.tag)}</span>
+          <span id="pd-count">0${state.activeProgIdx+1} of 0${progs.length}</span>
+        </div>
+        <div class="vc-prog-detail-mid">
+          <h3 class="ttl" id="pd-title">${esc(ap.title)}</h3>
+          <p class="body" id="pd-body">${esc(ap.body)}</p>
+        </div>
+        <div class="vc-prog-detail-bot">
+          <a href="#" class="vc-btn">${lang==='jp'?'詳しく見る':'Learn more'} →</a>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;opacity:.8;text-transform:uppercase">${lang==='jp'?'関連事例 +12':'+12 case studies'}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="vc-sh">
+    <div class="vc-sh-l" data-reveal>
+      <div class="vc-sh-eye">${esc(about.eyebrow)}</div>
+      <h2 class="vc-sh-title">${esc(about.title)}</h2>
+    </div>
+  </div>
+  <section class="vc-about">
+    <div class="vc-about-grid">
+      <div class="vc-about-img-card" data-reveal><div class="noise"></div></div>
+      <div class="vc-about-card" data-reveal data-reveal-delay="2">
+        <div>
+          <div class="vc-sh-eye">${lang==='jp'?'代表挨拶':'Director'}</div>
+          <h2>${lang==='jp'?'小さな出会いが、世界を動かす。':'A small encounter moves the world.'}</h2>
+          <p class="body">${esc(about.body)}</p>
+        </div>
+        <div class="sig">— ${esc(about.sig)}</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="vc-sh">
+    <div class="vc-sh-l" data-reveal>
+      <div class="vc-sh-eye">${lang==='jp'?'活動レポート':'Reports'}</div>
+      <h2 class="vc-sh-title">${lang==='jp'?'現場の、いま。':'From the field.'}</h2>
+    </div>
+    <a href="#" class="vc-cta-nav" data-reveal data-reveal-delay="2">${lang==='jp'?'すべて見る':'All reports'} →</a>
+  </div>
+  <section class="vc-reports">
+    <div class="vc-reports-grid">
+      ${S.reports[lang].map((r,i) => `
+        <div class="vc-report" data-reveal data-reveal-delay="${i+1}">
+          <div class="vc-report-meta">
+            <span class="vc-report-tag-pill">${esc(r.tag)}</span>
+            <span>${esc(r.date)}</span>
+          </div>
+          <div class="vc-report-title">${esc(r.title)}</div>
+          <div class="vc-report-foot">
+            <span>${lang==='jp'?'レポートを読む':'Read'}</span>
+            <span>↗</span>
+          </div>
+        </div>`).join('')}
+    </div>
+  </section>
+
+  <section class="vc-cta-section">
+    <div class="vc-cta-card">
+      <div>
+        <div class="vc-sh-eye" style="color:rgba(255,255,255,0.7)">${lang==='jp'?'私たちと共に':'Get involved'}</div>
+        <h2 data-reveal>${esc(ctaD.title)}</h2>
+        <p class="body" data-reveal data-reveal-delay="2">${esc(ctaD.body)}</p>
+      </div>
+      <div class="vc-cta-actions" data-reveal data-reveal-delay="3">
+        <a href="#" class="vc-btn vc-btn-pri">${esc(ctaD.primary)} →</a>
+        <a href="#" class="vc-btn vc-btn-sec">${esc(ctaD.secondary)} →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="vc-sh">
+    <div class="vc-sh-l" data-reveal>
+      <div class="vc-sh-eye">${lang==='jp'?'法人概要':'Organization'}</div>
+      <h2 class="vc-sh-title">${lang==='jp'?'法人について。':'About the org.'}</h2>
+    </div>
+  </div>
+  <section class="vc-org">
+    <div class="vc-org-grid">
+      ${orgRows.map((row,i) => `
+        <div class="vc-org-card ${i===orgRows.length-1?'col6':'col3'}" data-reveal>
+          <div class="k">${esc(row[0])}</div>
+          <div class="v">${esc(row[1])}</div>
+        </div>`).join('')}
+    </div>
+  </section>
+
+  <section class="vc-footer">
+    <div class="vc-footer-card">
+      <div class="vc-footer-tag">${esc(footerD.tag)}</div>
+      <div class="vc-footer-grid">
+        <div class="vc-footer-col">
+          <h4>${esc(S.brand[lang].name)}</h4>
+          <p>${esc(S.brand[lang].suffix)}</p>
+          <p>${esc(footerD.address)}</p>
+          <p>info@globalbridge-npo.org</p>
+        </div>
+        <div class="vc-footer-col">
+          <h4>${lang==='jp'?'メニュー':'Menu'}</h4>
+          ${S.nav[lang].map(n => `<a href="#">${esc(n)}</a>`).join('')}
+        </div>
+        <div class="vc-footer-col">
+          <h4>${lang==='jp'?'関わる':'Get involved'}</h4>
+          <a href="#">${esc(ctaD.primary)}</a>
+          <a href="#">${esc(ctaD.secondary)}</a>
+          <a href="#">${esc(footerD.contact)}</a>
+        </div>
+        <div class="vc-footer-col">
+          <h4>${lang==='jp'?'言語':'Language'}</h4>
+          <a href="#" class="lang-btn" data-lang="jp">日本語</a>
+          <a href="#" class="lang-btn" data-lang="en">English</a>
+        </div>
+      </div>
+      <div class="vc-footer-bottom">
+        <span>${esc(footerD.copy)}</span>
+        <span>NPO · GLOBAL BRIDGE</span>
+      </div>
+    </div>
+  </section>`;
+}
+
+function mount() {
+  if (removeScroll) removeScroll();
+
+  const lang = state.lang;
+  document.documentElement.lang = lang === 'jp' ? 'ja' : 'en';
+  document.title = lang === 'jp'
+    ? 'NPO法人グローバルブリッジ — 境界を、橋に変える。'
+    : 'Global Bridge NPO — Turning borders into bridges.';
+
+  document.getElementById('app').innerHTML = buildPage(lang);
+
+  // Scroll effects
+  const nav = document.getElementById('main-nav');
+  function onScroll() {
+    const y = window.scrollY;
+    nav.classList.toggle('scrolled', y > 30);
+    document.documentElement.style.setProperty('--parallax-offset', (y * 0.08) + 'px');
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  removeScroll = () => window.removeEventListener('scroll', onScroll);
+  onScroll();
+
+  // Reveal on scroll
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.setAttribute('data-revealed',''); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+
+  // Program selector
+  document.querySelectorAll('[data-prog]').forEach(item => {
+    item.addEventListener('click', () => {
+      const idx = +item.dataset.prog;
+      state.activeProgIdx = idx;
+      const p = SITE.programs[state.lang][idx];
+      document.querySelectorAll('[data-prog]').forEach((el,j) => el.classList.toggle('active', j===idx));
+      const detail = document.getElementById('prog-detail');
+      detail.style.background = `oklch(0.42 0.14 ${p.hue})`;
+      document.getElementById('pd-code').textContent = `—— ${p.code} / ${p.tag}`;
+      document.getElementById('pd-count').textContent = `0${idx+1} of 0${SITE.programs[state.lang].length}`;
+      document.getElementById('pd-title').textContent = p.title;
+      document.getElementById('pd-body').textContent = p.body;
+    });
+  });
+
+  // Language toggle
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      const newLang = btn.dataset.lang;
+      if (newLang && newLang !== state.lang) {
+        const y = window.scrollY;
+        state.lang = newLang;
+        mount();
+        window.scrollTo(0, y);
+      }
+    });
+  });
+}
+
+mount();
+</script>
+</body>
+</html>
