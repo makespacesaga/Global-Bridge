@@ -429,34 +429,7 @@ function buildPage(lang){
     </div>
   </section>
 
-  <section class="section reports">
-    <div class="section-inner">
-      <div class="reports-header">
-        <div data-reveal>
-          <p class="section-eyebrow">${lang==='jp'?'活動レポート':'Reports'}</p>
-          <h2 class="section-title">${lang==='jp'?'現場の、いま。':'From the field.'}</h2>
-        </div>
-        <a href="#" class="btn-primary" style="font-size:13px;padding:10px 20px" data-reveal data-reveal-delay="2">${lang==='jp'?'すべて見る':'All reports'} →</a>
-      </div>
-      <div class="reports-grid">
-        ${S.reports[lang].map((r,i)=>`
-          <div class="report-card" data-reveal data-reveal-delay="${i}">
-            ${r.img?`<img class="report-thumb" src="${r.img}" alt="${esc(r.tag)}">`:`<div class="report-thumb" style="background:var(--green-50);display:flex;align-items:center;justify-content:center"><span style="font-size:28px;opacity:.3">📄</span></div>`}
-            <div class="report-body">
-              <div class="report-meta">
-                <span class="report-tag">${esc(r.tag)}</span>
-                <span class="report-date">${esc(r.date)}</span>
-              </div>
-              <p class="report-title">${esc(r.title)}</p>
-              <div class="report-foot">
-                <span>${lang==='jp'?'レポートを読む':'Read'}</span>
-                <span>↗</span>
-              </div>
-            </div>
-          </div>`).join('')}
-      </div>
-    </div>
-  </section>
+  <!-- 活動レポートセクション：コンテンツ確定後に表示 -->
 
   <section class="cta">
     <div class="cta-inner">
