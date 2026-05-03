@@ -141,6 +141,36 @@ PRESETS = {
             "representing local roots with global vision"
         )
     },
+    "purpose_hero": {
+        "desc": "設立趣旨書セクションヘッダー背景",
+        "file": "purpose_hero.jpg",
+        "size": "1536x1024",
+        "quality": "high",
+        "prompt": (
+            "Powerful wide cinematic photograph representing the founding spirit of an international NPO. "
+            "Silhouettes of diverse people — Japanese, Filipino, and other Asian nationalities — standing together "
+            "on a bridge at golden sunset, arms outstretched, facing a vast horizon of ocean and sky. "
+            "Warm amber and deep teal color palette, dramatic rays of light breaking through clouds, "
+            "sense of hope, solidarity, and global mission. "
+            "Documentary photojournalism style, ultra high resolution, cinematic widescreen, "
+            "deeply emotional and visually stunning, suitable as a dark overlay background"
+        )
+    },
+    "purpose_activity": {
+        "desc": "活動経緯イメージ（東南アジア支援）",
+        "file": "purpose_activity.jpg",
+        "size": "1024x1536",
+        "quality": "high",
+        "prompt": (
+            "Authentic documentary photograph of Japanese NGO volunteers working in a rural Philippine village — "
+            "building a school classroom together with local community members, "
+            "children watching with bright curious eyes, "
+            "local women passing materials, Japanese volunteers smiling alongside Filipino families, "
+            "lush green tropical landscape, soft natural daylight filtering through palm trees, "
+            "genuine human connection, powerful humanitarian moment, "
+            "photojournalism style, rich natural colors, high contrast, portrait orientation"
+        )
+    },
     "line_banner": {
         "desc": "LINEお問い合わせバナー",
         "file": "line_banner.png",

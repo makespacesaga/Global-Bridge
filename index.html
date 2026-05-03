@@ -215,6 +215,52 @@ a{color:inherit;text-decoration:none}
 .org-cell.wide .org-val{font-size:14px;font-weight:400;color:var(--gray-500);line-height:1.8}
 
 /* ══════════════════════════════════════════
+   PURPOSE / 設立趣旨書
+══════════════════════════════════════════ */
+.purpose{}
+.purpose-cover{position:relative;min-height:50vh;display:flex;align-items:flex-end;overflow:hidden}
+.purpose-cover-bg{position:absolute;inset:0}
+.purpose-cover-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%;opacity:.5}
+.purpose-cover-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,var(--green-900) 0%,rgba(13,51,32,.75) 55%,rgba(13,51,32,.45) 100%)}
+.purpose-cover-inner{position:relative;z-index:2;max-width:var(--max-w);margin:0 auto;width:100%;padding:clamp(60px,8vw,100px) var(--pad) clamp(48px,6vw,80px)}
+.purpose-cover-tag{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.purpose-cover-tag::before{content:'';width:24px;height:1px;background:var(--green-200)}
+.purpose-cover-title{font-family:var(--serif);font-size:clamp(38px,5.5vw,72px);font-weight:600;color:#fff;line-height:1.1;letter-spacing:-.02em;margin-bottom:20px;white-space:pre-line}
+.purpose-cover-sub{font-size:16px;color:rgba(255,255,255,.7);max-width:62ch;line-height:1.8}
+.purpose-body{padding:clamp(64px,8vw,110px) var(--pad);background:var(--cream)}
+.purpose-body-inner{max-width:var(--max-w);margin:0 auto}
+.purpose-section{display:grid;grid-template-columns:1fr 1.6fr;gap:clamp(40px,6vw,96px);padding-bottom:clamp(60px,8vw,100px);margin-bottom:clamp(60px,8vw,100px);border-bottom:1px solid var(--gray-300)}
+.purpose-section:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0}
+.purpose-section.flip{grid-template-columns:1.6fr 1fr}
+.purpose-left{display:flex;flex-direction:column;gap:28px}
+.purpose-sec-num{font-family:var(--serif);font-size:clamp(100px,14vw,180px);font-weight:700;color:var(--gray-300);line-height:.85;letter-spacing:-.05em;margin-bottom:-8px;user-select:none}
+.purpose-sec-label{font-family:var(--serif);font-size:clamp(22px,2.5vw,32px);font-weight:600;color:var(--green-800);letter-spacing:-.01em;padding-bottom:20px;border-bottom:2px solid var(--green-600)}
+.purpose-quote-block{background:var(--green-900);color:#fff;border-radius:20px;padding:36px 40px;position:relative;overflow:hidden}
+.purpose-quote-block::before{content:'\201C';font-family:var(--serif);font-size:120px;color:rgba(255,255,255,.08);position:absolute;top:-10px;left:16px;line-height:1}
+.purpose-quote-text{font-family:var(--serif);font-size:clamp(17px,2vw,22px);font-weight:500;line-height:1.65;letter-spacing:-.01em;margin-bottom:20px;position:relative;white-space:pre-line}
+.purpose-quote-source{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;opacity:.5;position:relative}
+.purpose-highlights{display:flex;flex-direction:column;gap:12px}
+.purpose-hl-item{background:var(--white);border-radius:12px;padding:18px 22px;border-left:3px solid var(--green-600);box-shadow:var(--shadow-sm)}
+.purpose-hl-title{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--green-700);margin-bottom:6px}
+.purpose-hl-body{font-size:14px;color:var(--gray-600);line-height:1.65}
+.purpose-right{display:flex;flex-direction:column;gap:28px}
+.purpose-text{font-size:15.5px;color:var(--gray-700);line-height:2.05}
+.purpose-text p{margin-bottom:1.6em}
+.purpose-text p:last-child{margin-bottom:0}
+.purpose-img-wrap{border-radius:20px;overflow:hidden;position:relative;flex-shrink:0}
+.purpose-img-wrap img{width:100%;height:380px;object-fit:cover;object-position:center;display:block}
+.purpose-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(13,51,32,.35),transparent 50%)}
+.purpose-timeline{display:flex;flex-direction:column;gap:0}
+.purpose-tl-item{display:grid;grid-template-columns:72px 1fr;gap:20px;position:relative;padding-bottom:32px}
+.purpose-tl-item::before{content:'';position:absolute;left:35px;top:28px;bottom:0;width:1px;background:var(--gray-300)}
+.purpose-tl-item:last-child::before{display:none}
+.purpose-tl-year{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--green-700);font-weight:700;padding-top:3px;text-align:right;line-height:1.3}
+.purpose-tl-dot{position:absolute;left:31px;top:5px;width:8px;height:8px;border-radius:50%;background:var(--green-600);border:2px solid var(--cream);box-shadow:0 0 0 2px var(--green-600)}
+.purpose-tl-body{}
+.purpose-tl-title{font-weight:700;font-size:15px;color:var(--gray-900);margin-bottom:6px;line-height:1.4}
+.purpose-tl-desc{font-size:13.5px;color:var(--gray-500);line-height:1.75}
+
+/* ══════════════════════════════════════════
    FOOTER
 ══════════════════════════════════════════ */
 .footer{background:var(--green-900);color:#fff;padding:clamp(48px,6vw,80px) var(--pad) 40px}
@@ -294,6 +340,62 @@ const SITE = {
   org:{
     jp:[["名称","特定非営利活動法人グローバルブリッジ"],["英文名","Global Bridge, Nonprofit Organization"],["所在地","佐賀県杵島郡白石町"],["設立","2024年"],["代表理事","古賀久達"],["活動分野","保健医療福祉／社会教育／まちづくり／文化芸術スポーツ／環境／災害／地域安全／人権平和／国際協力／男女共同参画／子ども育成／情報化／科学技術／経済活性化／職業能力／消費者保護／中間支援"]],
     en:[["Name","Global Bridge, Nonprofit Organization"],["Japanese","特定非営利活動法人グローバルブリッジ"],["Location","Shiroishi-cho, Kishima-gun, Saga, Japan"],["Founded","2024"],["Director","Hisamichi Koga"],["Fields","Health & Welfare / Social Education / Community / Culture, Arts & Sports / Environment / Disaster Relief / Public Safety / Human Rights & Peace / International Cooperation / Gender Equality / Child Development / Information / Science & Technology / Economic Vitalization / Vocational / Consumer Protection / Intermediary Support"]]
+  },
+  purpose:{
+    jp:{
+      cover:{
+        tag:"Statement of Purpose",
+        title:"境界を橋に変えるため、\n私たちは立ち上がった。",
+        sub:"特定非営利活動法人グローバルブリッジは、社会課題の解決と持続可能な未来の実現を使命として、2024年に佐賀県白石町で設立されました。本書は、その設立に至る趣旨と経緯を記したものです。"
+      },
+      sec1:{
+        num:"01",label:"趣　旨",
+        quote:{text:"国境や立場を超えて人々がつながり、\n学び合い、支え合う——\nそれが、私たちの出発点です。",source:"設立趣旨書より"},
+        highlights:[
+          {title:"複合的な社会課題への対応",body:"少子高齢化・格差拡大・国際情勢不安定化に対し、教育・環境・平和の三軸から包括的にアプローチします。"},
+          {title:"民間ならではの機動力",body:"行政の手が届かない領域を、民間の柔軟な発想と現場主義の行動力で補完・推進します。"},
+          {title:"法人格がもたらす信頼基盤",body:"助成金・寄附受入、行政連携、組織的・継続的活動の実現に不可欠な社会的信用を確立します。"}
+        ],
+        body:`近年、少子高齢化や人口減少、格差の拡大、国際情勢の不安定化、自然災害の多発といった社会経済的課題が深刻化しており、国内外の地域社会は大きな変化と困難に直面しています。特に教育格差、貧困、環境問題、若年層の将来不安、国際理解不足などは、未来を担う世代の可能性を奪う重大な課題です。\n\nこうした背景のもと、私たちは、教育支援や国際協力、環境保全、地域活性化、子どもの健全育成、平和推進など、多岐にわたる社会課題に取り組むことで、持続可能で平和な社会の実現に寄与することを目的として、本法人「特定非営利活動法人グローバルブリッジ」の設立を決意しました。\n\n本法人が行う事業は、国境や立場を超えて人々がつながり、学び合い、支え合うことを通じて、不特定多数の人々の福祉の向上や社会的課題の解決に資するものであり、その活動の恩恵は特定の団体や個人に限られず、広く社会全体に波及するものです。\n\n教育支援や国際交流、環境保全活動などは、行政だけではカバーしきれない領域において、民間の柔軟な発想と行動力で補完・推進していく必要があります。法人格を有することで信頼性を確保し、継続的・組織的な活動を行うことが可能となります。助成金・寄附金の受け入れや事業の契約においても、法人格の取得は不可欠です。\n\n以上の趣旨に基づき、私たちは本法人を設立し、佐賀から世界へ——広く社会に貢献する活動を展開してまいります。`
+      },
+      sec2:{
+        num:"02",label:"申請に至るまでの経過",
+        body:`本法人の設立発起人は、これまで国内外における教育支援活動や地域活性化プロジェクト、国際交流の促進、また貧困地域における子ども・若者支援など、多様な社会貢献活動に携わってまいりました。特に、フィリピン・ベトナム・カンボジアをはじめとする東南アジア諸国における学校支援・物資提供活動、日本国内における若年層への職業訓練プログラムの提供、地域資源を活用したイベントやワークショップの開催など、分野を超えて実践的な取組みを積み重ねてきました。\n\nこれらの活動を通じて、より継続的かつ広域的に社会課題へ取り組むためには、明確な責任と信頼を担保できる法人格の取得が必要であると強く認識するようになりました。特に、助成金や寄附の受け入れ、他団体との連携や行政との協働においては、個人や任意団体では限界があり、活動の幅と影響力を拡大するうえで法人化が不可欠であると判断しました。\n\n既存のネットワークを活かしつつ、より多くの人々や地域に対して支援を広げていくには、組織としての透明性・継続性・社会的信用が求められるため、特定非営利活動法人としての申請に至ったものです。\n\nグローバルブリッジは、佐賀という地から、世界中の課題に向き合い続けます。一人ひとりの力を結集し、次の世代に誇れる社会を築くため、これからも橋をかけ続けてまいります。`,
+        timeline:[
+          {year:"2020〜",title:"草の根活動の始まり",desc:"国内外での個人・任意団体としての教育支援・地域活性化・国際交流活動をスタート。"},
+          {year:"2022〜",title:"東南アジアへの展開",desc:"フィリピン・ベトナム・カンボジアでの学校支援・物資提供を本格化。国内では若者向け職業訓練も開始。"},
+          {year:"2023",title:"法人化を決意",desc:"継続性・信頼性・資金調達基盤の確立に向け、特定非営利活動法人の設立を正式に決議。"},
+          {year:"2024",title:"グローバルブリッジ設立",desc:"佐賀県杵島郡白石町を拠点とする特定非営利活動法人グローバルブリッジ、正式設立。"}
+        ]
+      }
+    },
+    en:{
+      cover:{
+        tag:"Statement of Purpose",
+        title:"We rose to turn\nborders into bridges.",
+        sub:"Global Bridge NPO was founded in 2024 in Shiroishi-cho, Saga, with a mission to solve social challenges and build a sustainable future. This document sets out the purpose and background of our founding."
+      },
+      sec1:{
+        num:"01",label:"Purpose",
+        quote:{text:"People connecting across borders and backgrounds,\nlearning together, supporting each other——\nthat is where we begin.",source:"From the Statement of Purpose"},
+        highlights:[
+          {title:"Addressing complex social challenges",body:"Education, environment, and peace — a comprehensive approach to an aging society, inequality, and global instability."},
+          {title:"The agility of the private sector",body:"Complementing where government cannot reach, with flexible thinking and field-driven action."},
+          {title:"The value of nonprofit status",body:"Establishing the social credibility needed for grants, donations, government partnerships, and sustained operations."}
+        ],
+        body:`In recent years, social and economic challenges — including population decline, widening inequality, geopolitical instability, and frequent natural disasters — have placed immense pressure on communities at home and abroad. Educational gaps, poverty, environmental degradation, youth anxiety, and lack of cross-cultural understanding are all robbing the next generation of its potential.\n\nIt is against this backdrop that we resolved to establish Global Bridge, a nonprofit dedicated to addressing social challenges across education, international cooperation, environmental conservation, community development, child welfare, and peace promotion — contributing to a sustainable and peaceful society.\n\nOur work connects people across borders and backgrounds, raising welfare and solving social problems for the many, not the few. The benefits of our activities extend not to any single group, but ripple outward across society as a whole.\n\nMany of the areas we work in — international exchange, environmental conservation, education support — lie beyond the reach of government alone. By operating as a registered nonprofit, we can ensure credibility, continuity, and organizational accountability, and access the grants, donations, and partnerships that make lasting impact possible.\n\nOn these foundations, we established Global Bridge — and from Saga, we carry our mission to the world.`
+      },
+      sec2:{
+        num:"02",label:"Background",
+        body:`The founders of Global Bridge have spent years engaged in education support, community revitalization, international exchange, and youth development — both in Japan and abroad. Our hands-on experience spans school-building and supply missions in the Philippines, Vietnam, and Cambodia; vocational training programs for young people in Japan; and community events and workshops drawing on local resources.\n\nThrough this work, we came to understand clearly that addressing social challenges in a sustained and far-reaching way requires a legal entity capable of bearing clear responsibility and earning genuine trust. The limits of informal organizations — in accessing grants, forging partnerships, and collaborating with government — became apparent, and we concluded that formal incorporation was essential to expanding our reach and impact.\n\nBuilding on our existing networks while extending support to more people and communities demands the transparency, continuity, and social credibility that only a registered organization can provide. That conviction led us to apply for nonprofit status.\n\nFrom a small town in Saga, Global Bridge will keep facing the challenges of the world. Bringing together the power of each individual, we will keep building bridges toward a society the next generation can be proud of.`,
+        timeline:[
+          {year:"2020〜",title:"Grassroots beginnings",desc:"Education support, community revitalization, and international exchange begin as individual and informal group activities."},
+          {year:"2022〜",title:"Expanding to Southeast Asia",desc:"School support and supply delivery in the Philippines, Vietnam, and Cambodia. Youth vocational training launched in Japan."},
+          {year:"2023",title:"Decision to incorporate",desc:"Formal resolution to establish a nonprofit, building the foundation for continuity, credibility, and funding access."},
+          {year:"2024",title:"Global Bridge founded",desc:"Global Bridge NPO officially established, headquartered in Shiroishi-cho, Kishima-gun, Saga, Japan."}
+        ]
+      }
+    }
   },
   footer:{
     jp:{tag:"Bridges, everywhere.",address:"佐賀県杵島郡白石町",copy:"© 2026 Global Bridge NPO. All rights reserved."},
@@ -414,6 +516,73 @@ function buildPage(lang){
   </section>
 
   <!-- 活動レポートセクション：コンテンツ確定後に表示 -->
+
+  <section class="purpose" id="purpose">
+    <div class="purpose-cover">
+      <div class="purpose-cover-bg">
+        <img src="image/purpose_hero.jpg" alt="設立趣旨">
+      </div>
+      <div class="purpose-cover-inner">
+        <p class="purpose-cover-tag">${esc(S.purpose[lang].cover.tag)}</p>
+        <h2 class="purpose-cover-title">${S.purpose[lang].cover.title.split('\n').map(l=>esc(l)).join('<br>')}</h2>
+        <p class="purpose-cover-sub">${esc(S.purpose[lang].cover.sub)}</p>
+      </div>
+    </div>
+    <div class="purpose-body">
+      <div class="purpose-body-inner">
+
+        <div class="purpose-section" data-reveal>
+          <div class="purpose-left">
+            <div class="purpose-sec-num">${esc(S.purpose[lang].sec1.num)}</div>
+            <div class="purpose-sec-label">${esc(S.purpose[lang].sec1.label)}</div>
+            <div class="purpose-quote-block">
+              <p class="purpose-quote-text">${S.purpose[lang].sec1.quote.text.split('\n').map(l=>esc(l)).join('<br>')}</p>
+              <p class="purpose-quote-source">${esc(S.purpose[lang].sec1.quote.source)}</p>
+            </div>
+            <div class="purpose-highlights">
+              ${S.purpose[lang].sec1.highlights.map(h=>`
+                <div class="purpose-hl-item">
+                  <div class="purpose-hl-title">${esc(h.title)}</div>
+                  <div class="purpose-hl-body">${esc(h.body)}</div>
+                </div>`).join('')}
+            </div>
+          </div>
+          <div class="purpose-right">
+            <div class="purpose-text">
+              ${S.purpose[lang].sec1.body.split('\n\n').map(p=>`<p>${esc(p)}</p>`).join('')}
+            </div>
+          </div>
+        </div>
+
+        <div class="purpose-section flip" data-reveal>
+          <div class="purpose-right">
+            <div class="purpose-text">
+              ${S.purpose[lang].sec2.body.split('\n\n').map(p=>`<p>${esc(p)}</p>`).join('')}
+            </div>
+            <div class="purpose-img-wrap">
+              <img src="image/purpose_activity.jpg" alt="活動の様子">
+            </div>
+          </div>
+          <div class="purpose-left">
+            <div class="purpose-sec-num">${esc(S.purpose[lang].sec2.num)}</div>
+            <div class="purpose-sec-label">${esc(S.purpose[lang].sec2.label)}</div>
+            <div class="purpose-timeline">
+              ${S.purpose[lang].sec2.timeline.map(t=>`
+                <div class="purpose-tl-item">
+                  <div class="purpose-tl-year">${esc(t.year)}</div>
+                  <div class="purpose-tl-dot"></div>
+                  <div class="purpose-tl-body">
+                    <div class="purpose-tl-title">${esc(t.title)}</div>
+                    <div class="purpose-tl-desc">${esc(t.desc)}</div>
+                  </div>
+                </div>`).join('')}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <section class="cta">
     <div class="cta-inner">
