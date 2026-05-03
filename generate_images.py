@@ -102,10 +102,16 @@ PRESETS = {
         "size": "1536x1024",
         "quality": "high",
         "prompt": (
-            "Beautiful photograph of Ariake Sea coastline in Saga Japan, "
-            "volunteers doing coastal cleanup at low tide, blue sky, "
-            "lush green hills in background, environmental conservation atmosphere, "
-            "clean and inspiring, wide shot, professional photography"
+            "Stunning wide-angle environmental photography, cinematic quality. "
+            "Low tide at Ariake Sea tidal flats, Saga Prefecture Japan at golden hour — "
+            "vast silver-grey mud flats stretch to the horizon, reflecting the fiery orange and pink sky. "
+            "In the foreground, a line of Japanese volunteers in work clothes carefully collect trash along the shoreline, "
+            "passing bags to each other with care and determination. "
+            "Behind them, traditional fishing boats rest on the mud. "
+            "Far background: misty green mountains meet a luminous sunset sky. "
+            "Mood: quiet dedication, humanity caring for the earth, reverence for nature. "
+            "Shot on large format camera, ultra-sharp, rich tonal depth, "
+            "no text, no logos, cinematic widescreen, National Geographic quality"
         )
     },
     "program_children": {
@@ -126,10 +132,18 @@ PRESETS = {
         "size": "1024x1536",
         "quality": "high",
         "prompt": (
-            "Powerful documentary photograph of diverse group of people from different backgrounds "
-            "standing together in unity, various ages and ethnicities, warm natural lighting, "
-            "peaceful and determined expressions, shallow depth of field, "
-            "square or portrait format, professional photography"
+            "Profound documentary portrait, portrait orientation, award-winning photography. "
+            "A circle of six people — Japanese, Filipino, African, South Asian, elderly and young — "
+            "sit together around a low table outdoors in a peaceful Japanese garden setting, "
+            "deep in conversation, hands gesturing expressively, eyes full of understanding and empathy. "
+            "One elderly Japanese woman holds the hand of a young African man. "
+            "Dappled afternoon light falls through maple tree leaves above. "
+            "Expression: thoughtful, warm, united — a moment of genuine cross-cultural dialogue. "
+            "Shallow depth of field, f/1.8, warm natural color palette, "
+            "rich bokeh of the garden background. "
+            "Mood: peace, dignity, mutual respect, belonging. "
+            "35mm film photography aesthetic, no text, no logos, portrait 2:3 ratio, "
+            "Magnum Photos quality, deeply human"
         )
     },
     "about_director": {
@@ -169,18 +183,19 @@ PRESETS = {
         "size": "1024x1536",
         "quality": "high",
         "prompt": (
-            "Powerful documentary photograph, portrait orientation, published quality. "
-            "Inside a newly built school classroom in a rural Philippine village: "
-            "A young Japanese male volunteer sits at a low desk beside three Filipino elementary school children, "
-            "guiding them through a lesson with a handwritten notebook open between them. "
-            "The children lean in with intense curiosity and delight. "
-            "Afternoon light streams through an open window, casting a warm glow across their faces. "
-            "The classroom walls show children's drawings and a world map. "
-            "Through the window: lush green tropical mountains and a clear blue sky. "
-            "Color palette: warm golden tones, deep greens, rich skin tones. "
-            "Mood: transformative, intimate, full of possibility. "
-            "35mm documentary photography, f/2.0, natural light only, "
-            "no flash, no staged poses — raw human truth, portrait 2:3 ratio, exceptional quality"
+            "Intimate documentary photograph, portrait orientation, Magnum Photos quality. "
+            "Outdoors in a rural Philippine village construction site: "
+            "Three people — a Japanese man in his 40s wearing plain work clothes and a cap, "
+            "a Filipino woman in her 30s, and a young Filipino teenage boy — "
+            "work side by side laying concrete blocks for a school wall, "
+            "laughing and talking together naturally. "
+            "No branded text or logos on any clothing. Plain work shirts only. "
+            "Lush tropical greenery and banana trees in the background. "
+            "Bright midday tropical light with soft shadows. "
+            "Mood: genuine camaraderie, hard work, joy of building something together. "
+            "Shot at eye level, f/2.8, warm natural tones, "
+            "rich detail in faces and hands, portrait 2:3 ratio, "
+            "raw authentic moment, no staging, no text anywhere in the image"
         )
     },
     "line_banner": {
