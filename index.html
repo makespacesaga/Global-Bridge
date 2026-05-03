@@ -58,10 +58,10 @@ a{color:inherit;text-decoration:none}
 /* ══════════════════════════════════════════
    NAV
 ══════════════════════════════════════════ */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 var(--pad);height:68px;display:flex;align-items:center;justify-content:space-between;gap:32px;transition:background .3s,box-shadow .3s,backdrop-filter .3s}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 var(--pad);height:80px;display:flex;align-items:center;justify-content:space-between;gap:32px;transition:background .3s,box-shadow .3s,backdrop-filter .3s}
 .nav.scrolled{background:rgba(250,250,248,.92);backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(0,0,0,.08)}
-.nav-logo{display:flex;align-items:center;flex-shrink:0;background:rgba(255,255,255,.92);border-radius:10px;padding:4px 10px;backdrop-filter:blur(8px)}
-.nav-logo img{height:38px;width:auto;display:block}
+.nav-logo{display:flex;align-items:center;flex-shrink:0;background:rgba(255,255,255,.94);border-radius:12px;padding:8px 16px;backdrop-filter:blur(8px);box-shadow:0 2px 12px rgba(0,0,0,.12)}
+.nav-logo img{height:54px;width:auto;display:block}
 .nav-links{display:flex;gap:28px}
 .nav-links a{font-size:13px;font-weight:500;color:var(--gray-700);opacity:.85;transition:opacity .2s,color .2s}
 .nav-links a:hover{opacity:1;color:var(--green-800)}
@@ -225,7 +225,7 @@ a{color:inherit;text-decoration:none}
 .footer-col p,.footer-col a{font-size:13px;color:rgba(255,255,255,.7);line-height:1.6;margin-bottom:8px;display:block;transition:color .2s}
 .footer-col a:hover{color:#fff}
 .footer-logo{margin-bottom:16px}
-.footer-logo img{height:40px;width:auto;display:block;filter:brightness(0) invert(1);opacity:.9}
+.footer-logo img{height:58px;width:auto;display:block;filter:brightness(0) invert(1);opacity:.9}
 .footer-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:rgba(255,255,255,.35)}
 </style>
 </head>
@@ -239,7 +239,8 @@ const SITE = {
   },
   nav:{
     jp:["私たちについて","事業内容","活動レポート","法人概要","お問い合わせ"],
-    en:["About","Programs","Reports","Organization","Contact"]
+    en:["About","Programs","Reports","Organization","Contact"],
+    anchors:["#about","#programs","#reports","#org","https://lin.ee/vA6c1Xc"]
   },
   hero:{
     jp:{eyebrow:"Building bridges across the world — since 2024",title1:"支え合いから、",title2:"持続可能な社会へ。",sub:"佐賀から世界へ。教育・国際協力・環境保全・子どもの健全育成・平和推進を通じて、誰も取り残さない未来を築きます。",ctaPrimary:"支援する",ctaSecondary:"活動を知る"},
@@ -328,15 +329,12 @@ function buildPage(lang){
     <div class="nav-logo">
       <img src="image/logo_banner.png" alt="グローバルブリッジ 特定非営利活動法人">
     </div>
-    <nav class="nav-links">
-      ${S.nav[lang].map(n=>`<a href="#">${esc(n)}</a>`).join('')}
-    </nav>
     <div class="nav-right">
       <div class="nav-lang">
         <button class="lang-btn${lang==='jp'?' on':''}" data-lang="jp">JP</button>
         <button class="lang-btn${lang==='en'?' on':''}" data-lang="en">EN</button>
       </div>
-      <button class="nav-donate lang-btn" data-lang="${lang}">${esc(h.ctaPrimary)}</button>
+      <a href="https://lin.ee/vA6c1Xc" class="nav-donate" target="_blank" rel="noopener">${esc(h.ctaPrimary)}</a>
     </div>
   </nav>
 
@@ -348,8 +346,8 @@ function buildPage(lang){
       <h1 class="hero-title">${esc(h.title1)}<br><span>${esc(h.title2)}</span></h1>
       <p class="hero-sub">${esc(h.sub)}</p>
       <div class="hero-actions">
-        <button class="btn-primary">${esc(h.ctaPrimary)} →</button>
-        <button class="btn-ghost">${esc(h.ctaSecondary)}</button>
+        <a href="https://lin.ee/vA6c1Xc" class="btn-primary" target="_blank" rel="noopener">${esc(h.ctaPrimary)} →</a>
+        <a href="#about" class="btn-ghost">${esc(h.ctaSecondary)}</a>
       </div>
       <div class="hero-badges">
         ${S.stats[lang].map(s=>`<div class="hero-badge"><span class="num">${esc(s.num)}</span><span class="lab">${esc(s.label)}</span></div>`).join('')}
@@ -372,15 +370,8 @@ function buildPage(lang){
     </div>
   </div>
 
-  <section class="section programs">
+  <section class="section programs" id="programs">
     <div class="section-inner">
-      <div class="programs-header">
-        <div data-reveal>
-          <p class="section-eyebrow">${lang==='jp'?'事業内容':'Programs'}</p>
-          <h2 class="section-title">${lang==='jp'?'5つの重点領域。':'Five focus areas.'}</h2>
-          <p class="section-sub">${lang==='jp'?'定款に定める17分野を、5つの主軸へと束ねた重点プログラム。':'Our 17 chartered fields, woven into five focus programs.'}</p>
-        </div>
-      </div>
       <div class="programs-grid" id="prog-cards">${progCards}</div>
       <div class="prog-detail" id="prog-detail" style="background:${hueToColor(ap.hue,.35,.16)}">
         <div class="prog-detail-text">
@@ -390,7 +381,6 @@ function buildPage(lang){
             <p class="prog-detail-desc" id="pd-body">${esc(ap.body)}</p>
           </div>
           <div class="prog-detail-footer">
-            <a href="#" class="prog-detail-link">${lang==='jp'?'詳しく見る':'Learn more'} →</a>
             <span class="prog-detail-count" id="pd-count">0${state.activeProgIdx+1} / 0${progs.length}</span>
           </div>
         </div>
@@ -401,7 +391,7 @@ function buildPage(lang){
     </div>
   </section>
 
-  <section class="section about">
+  <section class="section about" id="about">
     <div class="section-inner">
       <div class="about-grid">
         <div class="about-photo" data-reveal>
@@ -430,13 +420,13 @@ function buildPage(lang){
         <p class="cta-sub">${esc(ct.body)}</p>
       </div>
       <div class="cta-actions" data-reveal data-reveal-delay="2">
-        <button class="btn-cta-primary">❤ ${esc(ct.primary)}</button>
-        <button class="btn-cta-secondary">${esc(ct.secondary)} →</button>
+        <a href="https://lin.ee/vA6c1Xc" class="btn-cta-primary" target="_blank" rel="noopener">❤ ${esc(ct.primary)}</a>
+        <a href="https://lin.ee/vA6c1Xc" class="btn-cta-secondary" target="_blank" rel="noopener">${esc(ct.secondary)} →</a>
       </div>
     </div>
   </section>
 
-  <section class="section org">
+  <section class="section org" id="org">
     <div class="section-inner">
       <div data-reveal>
         <p class="section-eyebrow">${lang==='jp'?'法人概要':'Organization'}</p>
@@ -469,13 +459,13 @@ function buildPage(lang){
         </div>
         <div class="footer-col">
           <h4>${lang==='jp'?'メニュー':'Menu'}</h4>
-          ${S.nav[lang].map(n=>`<a href="#">${esc(n)}</a>`).join('')}
+          ${S.nav[lang].map((n,i)=>`<a href="${S.nav.anchors[i]}"${S.nav.anchors[i].startsWith('http')?' target="_blank" rel="noopener"':''}>${esc(n)}</a>`).join('')}
         </div>
         <div class="footer-col">
           <h4>${lang==='jp'?'関わる':'Get involved'}</h4>
-          <a href="#">${esc(ct.primary)}</a>
-          <a href="#">${esc(ct.secondary)}</a>
-          <a href="#">${lang==='jp'?'お問い合わせ':'Contact'}</a>
+          <a href="https://lin.ee/vA6c1Xc" target="_blank" rel="noopener">${esc(ct.primary)}</a>
+          <a href="https://lin.ee/vA6c1Xc" target="_blank" rel="noopener">${esc(ct.secondary)}</a>
+          <a href="https://lin.ee/vA6c1Xc" target="_blank" rel="noopener">${lang==='jp'?'お問い合わせ':'Contact'}</a>
         </div>
         <div class="footer-col">
           <h4>${lang==='jp'?'言語':'Language'}</h4>
