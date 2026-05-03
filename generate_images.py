@@ -141,6 +141,20 @@ PRESETS = {
             "representing local roots with global vision"
         )
     },
+    "line_banner": {
+        "desc": "LINEお問い合わせバナー",
+        "file": "line_banner.png",
+        "size": "1536x1024",
+        "quality": "high",
+        "prompt": (
+            "Clean professional contact banner for a Japanese NPO website. "
+            "Bright LINE green background (#06C755), centered white speech bubble icon and bold white Japanese text "
+            "'LINEでお問い合わせ' with subtitle 'お気軽にご連絡ください', "
+            "modern minimal flat design, slight gradient from lime green to emerald green, "
+            "small white arrow icon on the right, rounded rectangle shape, "
+            "crisp vector-style illustration, high contrast, no photography, pure graphic design"
+        )
+    },
     "cta_bg": {
         "desc": "寄付CTAセクション背景",
         "file": "cta_bg.jpg",

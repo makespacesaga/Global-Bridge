@@ -226,6 +226,9 @@ a{color:inherit;text-decoration:none}
 .footer-col a:hover{color:#fff}
 .footer-logo{margin-bottom:20px}
 .footer-logo img{height:90px;width:auto;display:block;filter:brightness(0) invert(1);opacity:.95}
+.line-banner{display:block;margin-top:16px;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.line-banner:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(6,199,85,.4)}
+.line-banner img{width:100%;max-width:260px;height:auto;display:block;border-radius:12px}
 .footer-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:rgba(255,255,255,.35)}
 </style>
 </head>
@@ -455,7 +458,9 @@ function buildPage(lang){
             <img src="image/logo_banner.png" alt="グローバルブリッジ 特定非営利活動法人">
           </div>
           <p>${esc(ft.address)}</p>
-          <p>info@globalbridge-npo.org</p>
+          <a href="https://lin.ee/vA6c1Xc" class="line-banner" target="_blank" rel="noopener">
+            <img src="image/line_banner.png" alt="LINEでお問い合わせ">
+          </a>
         </div>
         <div class="footer-col">
           <h4>${lang==='jp'?'メニュー':'Menu'}</h4>
