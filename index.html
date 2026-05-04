@@ -166,7 +166,13 @@ a{color:inherit;text-decoration:none}
 .about-quote{font-family:var(--serif);font-size:clamp(24px,3vw,38px);font-weight:500;line-height:1.3;letter-spacing:-.02em;color:var(--gray-900);margin:20px 0 28px}
 .about-quote span{color:var(--green-700)}
 .about-body{font-size:15px;color:var(--gray-500);line-height:1.9;white-space:pre-line}
-.about-sig{margin-top:32px;display:flex;align-items:center;gap:16px;padding-top:24px;border-top:1px solid var(--gray-300)}
+.about-locations{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 4px}
+.about-loc-chip{display:inline-flex;align-items:center;gap:6px;background:var(--green-50);border:1px solid var(--green-200);border-radius:99px;padding:6px 16px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--green-800);font-weight:600}
+.about-loc-chip::before{content:'●';font-size:6px;color:var(--green-600)}
+.about-loc-chip.home{background:var(--green-800);color:#fff;border-color:var(--green-800)}
+.about-loc-chip.home::before{color:rgba(255,255,255,.5)}
+.about-loc-label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-500);margin-bottom:10px;margin-top:28px}
+.about-sig{margin-top:28px;display:flex;align-items:center;gap:16px;padding-top:24px;border-top:1px solid var(--gray-300)}
 .about-sig-line{width:32px;height:2px;background:var(--green-600);border-radius:2px;flex-shrink:0}
 .about-sig-text{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--gray-700)}
 
@@ -389,8 +395,8 @@ const SITE = {
     en:{eyebrow:"Building bridges across the world — since 2024",title1:"From mutual support",title2:"to a sustainable world.",sub:"From Saga to the world. Through education, international cooperation, environmental conservation, child development, and peace promotion — we leave no one behind.",ctaPrimary:"Support us",ctaSecondary:"Our work"}
   },
   stats:{
-    jp:[{num:"17",label:"活動分野",desc:"定款に定める特定非営利活動の種類"},{num:"5",label:"重点事業領域",desc:"教育・国際・環境・子ども・平和"},{num:"1",label:"拠点 / 佐賀",desc:"佐賀県杵島郡白石町を拠点に活動"},{num:"∞",label:"つなげる人々",desc:"佐賀から世界、世界から佐賀へ"}],
-    en:[{num:"17",label:"Activity fields",desc:"Chartered nonprofit activity categories"},{num:"5",label:"Focus areas",desc:"Education, International, Environment, Children, Peace"},{num:"1",label:"Base / Saga",desc:"Headquartered in Shiroishi-cho, Saga"},{num:"∞",label:"People connected",desc:"From Saga to the world, and back again"}]
+    jp:[{num:"17",label:"活動分野",desc:"定款に定める特定非営利活動の種類"},{num:"5",label:"重点事業領域",desc:"教育・国際・環境・子ども・平和"},{num:"1",label:"拠点 / 佐賀",desc:"佐賀を本部に、名古屋・東京など全国各地からメンバーが参画"},{num:"∞",label:"つなげる人々",desc:"佐賀から世界、世界から佐賀へ"}],
+    en:[{num:"17",label:"Activity fields",desc:"Chartered nonprofit activity categories"},{num:"5",label:"Focus areas",desc:"Education, International, Environment, Children, Peace"},{num:"1",label:"Base / Saga",desc:"Based in Saga, with members from Nagoya, Tokyo, and across Japan"},{num:"∞",label:"People connected",desc:"From Saga to the world, and back again"}]
   },
   programs:{
     jp:[
@@ -423,8 +429,16 @@ const SITE = {
     ]
   },
   about:{
-    jp:{eyebrow:"私たちについて",title:"境界を、橋に変える。",quote:"小さな出会いが、\n世界を動かす。",body:"グローバルブリッジは、佐賀県白石町を拠点に2024年に設立されたNPO法人です。教育・国際協力・環境保全・子どもの健全育成・平和推進・スポーツ振興など17の分野にわたり、地域社会と国際社会の双方に貢献することを使命としています。\n\n私たちが信じているのは、ひとつのちいさな出会いが、世界を動かすという事実です。佐賀の小さな町から世界へ、世界から佐賀へ。橋をかけ続けます。",sig:"代表理事　古賀久達"},
-    en:{eyebrow:"About us",title:"Turning borders into bridges.",quote:"A small encounter\nmoves the world.",body:"Global Bridge is a nonprofit founded in 2024, based in Shiroishi-cho, Saga Prefecture. Across 17 fields — education, international cooperation, environment, child development, peace, sports — our mission is to contribute to local and global communities alike.\n\nWe believe a single small encounter can move the world. From a small town in Saga to the world, and back again. We keep building bridges.",sig:"Representative Director  Hisamichi Koga"}
+    jp:{eyebrow:"私たちについて",title:"境界を、橋に変える。",quote:"小さな出会いが、\n世界を動かす。",
+      body:"グローバルブリッジは、佐賀県白石町を拠点に2024年に設立されたNPO法人です。教育・国際協力・環境保全・子どもの健全育成・平和推進・スポーツ振興など17の分野にわたり、地域社会と国際社会の双方に貢献することを使命としています。\n\n私たちの強みは、メンバーが佐賀県内にとどまらないことです。名古屋・東京をはじめ全国各地から多様な専門性と志を持つ仲間が参画し、それぞれの地でグローバルブリッジの理念を広げています。地域を越えたネットワークが、活動の幅と可能性を大きく広げています。\n\n私たちが信じているのは、ひとつのちいさな出会いが、世界を動かすという事実です。佐賀の小さな町から世界へ、世界から佐賀へ。橋をかけ続けます。",
+      sig:"代表理事　古賀久達",
+      locLabel:"メンバー所在地",
+      locations:[{name:"佐賀（本部）",home:true},{name:"名古屋"},{name:"東京"},{name:"全国各地"}]},
+    en:{eyebrow:"About us",title:"Turning borders into bridges.",quote:"A small encounter\nmoves the world.",
+      body:"Global Bridge is a nonprofit founded in 2024, based in Shiroishi-cho, Saga Prefecture. Across 17 fields — education, international cooperation, environment, child development, peace, sports — our mission is to contribute to local and global communities alike.\n\nOne of our core strengths: our members extend far beyond Saga. From Nagoya, Tokyo, and cities across Japan, diverse professionals united by purpose join our mission — carrying the spirit of Global Bridge into every community.\n\nWe believe a single small encounter can move the world. From a small town in Saga to the world, and back again. We keep building bridges.",
+      sig:"Representative Director  Hisamichi Koga",
+      locLabel:"Member locations",
+      locations:[{name:"Saga (HQ)",home:true},{name:"Nagoya"},{name:"Tokyo"},{name:"Nationwide"}]}
   },
   cta:{
     jp:{tag:"私たちと共に",title:"あなたの一歩が、\n誰かの未来になる。",body:"個人寄付・企業協賛・ボランティア参加・連携協働。関わり方は様々です。",primary:"寄付する",secondary:"ボランティア登録"},
@@ -599,6 +613,10 @@ function buildPage(lang){
           <p class="section-eyebrow">${esc(ab.eyebrow)}</p>
           <h2 class="about-quote">${ab.quote.split('\n').map(l=>`${esc(l)}`).join('<br><span>')}</h2>
           <p class="about-body">${esc(ab.body)}</p>
+          <p class="about-loc-label">${esc(ab.locLabel)}</p>
+          <div class="about-locations">
+            ${ab.locations.map(l=>`<span class="about-loc-chip${l.home?' home':''}">${esc(l.name)}</span>`).join('')}
+          </div>
           <div class="about-sig">
             <div class="about-sig-line"></div>
             <span class="about-sig-text">${esc(ab.sig)}</span>
