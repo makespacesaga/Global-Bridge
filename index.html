@@ -60,8 +60,8 @@ a{color:inherit;text-decoration:none}
 ══════════════════════════════════════════ */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 var(--pad);height:100px;display:flex;align-items:center;justify-content:space-between;gap:32px;transition:background .3s,box-shadow .3s,backdrop-filter .3s}
 .nav.scrolled{background:rgba(250,250,248,.92);backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(0,0,0,.08)}
-.nav-logo{display:flex;align-items:center;flex-shrink:0;background:rgba(255,255,255,.96);border-radius:16px;padding:10px 20px;backdrop-filter:blur(8px);box-shadow:0 4px 20px rgba(0,0,0,.18)}
-.nav-logo img{height:72px;width:auto;display:block}
+.nav-logo{display:flex;align-items:center;flex-shrink:0;background:rgba(255,255,255,.96);border-radius:20px;padding:12px 28px;backdrop-filter:blur(8px);box-shadow:0 4px 20px rgba(0,0,0,.18)}
+.nav-logo img{height:120px;width:auto;display:block}
 .nav-links{display:flex;gap:28px}
 .nav-links a{font-size:13px;font-weight:500;color:var(--gray-700);opacity:.85;transition:opacity .2s,color .2s}
 .nav-links a:hover{opacity:1;color:var(--green-800)}
@@ -171,6 +171,8 @@ a{color:inherit;text-decoration:none}
 .about-loc-chip::before{content:'●';font-size:6px;color:var(--green-600)}
 .about-loc-chip.home{background:var(--green-800);color:#fff;border-color:var(--green-800)}
 .about-loc-chip.home::before{color:rgba(255,255,255,.5)}
+.about-loc-chip.intl{background:#e8f3fb;border-color:#8ec4e4;color:#1a517e}
+.about-loc-chip.intl::before{color:#3b82b6}
 .about-loc-label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-500);margin-bottom:10px;margin-top:28px}
 .about-sig{margin-top:28px;display:flex;align-items:center;gap:16px;padding-top:24px;border-top:1px solid var(--gray-300)}
 .about-sig-line{width:32px;height:2px;background:var(--green-600);border-radius:2px;flex-shrink:0}
@@ -277,7 +279,7 @@ a{color:inherit;text-decoration:none}
 .footer-col p,.footer-col a{font-size:13px;color:rgba(255,255,255,.7);line-height:1.6;margin-bottom:8px;display:block;transition:color .2s}
 .footer-col a:hover{color:#fff}
 .footer-logo{margin-bottom:20px}
-.footer-logo img{height:90px;width:auto;display:block;filter:brightness(0) invert(1);opacity:.95}
+.footer-logo img{height:180px;width:auto;display:block;filter:brightness(0) invert(1);opacity:.95}
 .line-banner{display:block;margin-top:16px;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s}
 .line-banner:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(6,199,85,.4)}
 .line-banner img{width:100%;max-width:260px;height:auto;display:block;border-radius:12px}
@@ -291,8 +293,8 @@ a{color:inherit;text-decoration:none}
 
   /* Nav */
   .nav{height:68px}
-  .nav-logo{padding:5px 10px;border-radius:10px}
-  .nav-logo img{height:46px}
+  .nav-logo{padding:8px 16px;border-radius:14px}
+  .nav-logo img{height:80px}
   .nav-lang button{padding:3px 7px;font-size:10px}
   .nav-donate{padding:8px 14px;font-size:12px}
 
@@ -354,7 +356,7 @@ a{color:inherit;text-decoration:none}
   .footer{padding:48px var(--pad) 32px}
   .footer-tag{font-size:clamp(28px,8vw,48px);margin-bottom:32px}
   .footer-grid{grid-template-columns:1fr;gap:28px}
-  .footer-logo img{height:64px}
+  .footer-logo img{height:120px}
   .footer-bottom{flex-direction:column;gap:8px;text-align:center}
   .line-banner img{max-width:100%}
 
@@ -363,7 +365,7 @@ a{color:inherit;text-decoration:none}
 }
 
 @media(max-width:480px){
-  .nav-logo img{height:40px}
+  .nav-logo img{height:64px}
   .hero-title{font-size:40px}
   .hero-sub{font-size:14px}
   .hero-badge{min-width:calc(50% - 8px)}
@@ -430,30 +432,34 @@ const SITE = {
   },
   about:{
     jp:{eyebrow:"私たちについて",title:"境界を、橋に変える。",quote:"小さな出会いが、\n世界を動かす。",
-      body:"グローバルブリッジは、佐賀県白石町を拠点に2024年に設立されたNPO法人です。教育・国際協力・環境保全・子どもの健全育成・平和推進・スポーツ振興など17の分野にわたり、地域社会と国際社会の双方に貢献することを使命としています。\n\n私たちの強みは、メンバーが佐賀県内にとどまらないことです。名古屋・東京をはじめ全国各地から多様な専門性と志を持つ仲間が参画し、それぞれの地でグローバルブリッジの理念を広げています。地域を越えたネットワークが、活動の幅と可能性を大きく広げています。\n\n私たちが信じているのは、ひとつのちいさな出会いが、世界を動かすという事実です。佐賀の小さな町から世界へ、世界から佐賀へ。橋をかけ続けます。",
+      body:"グローバルブリッジは、佐賀県白石町を拠点に令和8年（2026年）2月16日に白石町長より認証を受け設立されたNPO法人です。教育・国際協力・環境保全・子どもの健全育成・平和推進・スポーツ振興など17の分野にわたり、地域社会と国際社会の双方に貢献することを使命としています。\n\n私たちの最大の強みは、真にグローバルなメンバーシップです。名古屋・東京をはじめ日本全国から志を持つ仲間が集まるだけでなく、フィリピン・インドネシア・台湾・韓国・コートジボワールなど世界各地にも仲間がいます。この国境を越えたネットワークこそが、私たちの活動に深みと広がりをもたらしています。\n\n私たちが信じているのは、ひとつのちいさな出会いが、世界を動かすという事実です。佐賀の小さな町から世界へ、世界から佐賀へ。橋をかけ続けます。",
       sig:"代表理事　古賀久達",
-      locLabel:"メンバー所在地",
-      locations:[{name:"佐賀（本部）",home:true},{name:"名古屋"},{name:"東京"},{name:"全国各地"}]},
+      locLabel:"国内メンバー所在地",
+      locations:[{name:"佐賀（本部）",home:true},{name:"名古屋"},{name:"東京"},{name:"全国各地"}],
+      locLabelIntl:"海外メンバー所在地",
+      locationsIntl:[{name:"フィリピン"},{name:"インドネシア"},{name:"台湾"},{name:"韓国"},{name:"コートジボワール"}]},
     en:{eyebrow:"About us",title:"Turning borders into bridges.",quote:"A small encounter\nmoves the world.",
-      body:"Global Bridge is a nonprofit founded in 2024, based in Shiroishi-cho, Saga Prefecture. Across 17 fields — education, international cooperation, environment, child development, peace, sports — our mission is to contribute to local and global communities alike.\n\nOne of our core strengths: our members extend far beyond Saga. From Nagoya, Tokyo, and cities across Japan, diverse professionals united by purpose join our mission — carrying the spirit of Global Bridge into every community.\n\nWe believe a single small encounter can move the world. From a small town in Saga to the world, and back again. We keep building bridges.",
+      body:"Global Bridge is a nonprofit certified by the Mayor of Shiroishi-cho on February 16, 2026 (Reiwa 8), based in Shiroishi-cho, Saga Prefecture. Across 17 fields — education, international cooperation, environment, child development, peace, sports — our mission is to contribute to local and global communities alike.\n\nOur greatest strength is our truly global membership. Beyond our base in Saga, members join us from across Japan — Nagoya, Tokyo, and nationwide — and from countries around the world: the Philippines, Indonesia, Taiwan, South Korea, and Côte d'Ivoire. This cross-border network gives our work both depth and reach.\n\nWe believe a single small encounter can move the world. From a small town in Saga to the world, and back again. We keep building bridges.",
       sig:"Representative Director  Hisamichi Koga",
-      locLabel:"Member locations",
-      locations:[{name:"Saga (HQ)",home:true},{name:"Nagoya"},{name:"Tokyo"},{name:"Nationwide"}]}
+      locLabel:"Domestic members",
+      locations:[{name:"Saga (HQ)",home:true},{name:"Nagoya"},{name:"Tokyo"},{name:"Nationwide"}],
+      locLabelIntl:"International members",
+      locationsIntl:[{name:"Philippines"},{name:"Indonesia"},{name:"Taiwan"},{name:"South Korea"},{name:"Côte d'Ivoire"}]}
   },
   cta:{
     jp:{tag:"私たちと共に",title:"あなたの一歩が、\n誰かの未来になる。",body:"個人寄付・企業協賛・ボランティア参加・連携協働。関わり方は様々です。",primary:"寄付する",secondary:"ボランティア登録"},
     en:{tag:"Get involved",title:"Your step becomes\nsomeone's future.",body:"Donations, corporate partnerships, volunteering, collaboration — there are many ways to take part.",primary:"Donate now",secondary:"Volunteer"}
   },
   org:{
-    jp:[["名称","特定非営利活動法人グローバルブリッジ"],["英文名","Global Bridge, Nonprofit Organization"],["所在地","佐賀県杵島郡白石町"],["設立","2024年"],["代表理事","古賀久達"],["活動分野","保健医療福祉／社会教育／まちづくり／文化芸術スポーツ／環境／災害／地域安全／人権平和／国際協力／男女共同参画／子ども育成／情報化／科学技術／経済活性化／職業能力／消費者保護／中間支援"]],
-    en:[["Name","Global Bridge, Nonprofit Organization"],["Japanese","特定非営利活動法人グローバルブリッジ"],["Location","Shiroishi-cho, Kishima-gun, Saga, Japan"],["Founded","2024"],["Director","Hisamichi Koga"],["Fields","Health & Welfare / Social Education / Community / Culture, Arts & Sports / Environment / Disaster Relief / Public Safety / Human Rights & Peace / International Cooperation / Gender Equality / Child Development / Information / Science & Technology / Economic Vitalization / Vocational / Consumer Protection / Intermediary Support"]]
+    jp:[["名称","特定非営利活動法人グローバルブリッジ"],["英文名","Global Bridge, Nonprofit Organization"],["所在地","〒849-1112 佐賀県杵島郡白石町大字福田2027番地16"],["認証取得","令和8年2月16日（2026年2月16日）"],["代表理事","古賀久達"],["活動分野","保健医療福祉／社会教育／まちづくり／文化芸術スポーツ／環境／災害／地域安全／人権平和／国際協力／男女共同参画／子ども育成／情報化／科学技術／経済活性化／職業能力／消費者保護／中間支援"]],
+    en:[["Name","Global Bridge, Nonprofit Organization"],["Japanese","特定非営利活動法人グローバルブリッジ"],["Location","2027-16 Fukuda, Shiroishi-cho, Kishima-gun, Saga 849-1112, Japan"],["Certified","February 16, 2026 (Reiwa 8)"],["Director","Hisamichi Koga"],["Fields","Health & Welfare / Social Education / Community / Culture, Arts & Sports / Environment / Disaster Relief / Public Safety / Human Rights & Peace / International Cooperation / Gender Equality / Child Development / Information / Science & Technology / Economic Vitalization / Vocational / Consumer Protection / Intermediary Support"]]
   },
   purpose:{
     jp:{
       cover:{
         tag:"Statement of Purpose",
         title:"境界を橋に変えるため、\n私たちは立ち上がった。",
-        sub:"特定非営利活動法人グローバルブリッジは、社会課題の解決と持続可能な未来の実現を使命として、2024年に佐賀県白石町で設立されました。本書は、その設立に至る趣旨と経緯を記したものです。"
+        sub:"特定非営利活動法人グローバルブリッジは、社会課題の解決と持続可能な未来の実現を使命として、令和8年（2026年）2月16日に白石町長より認証を受け、佐賀県白石町で設立されました。本書は、その設立に至る趣旨と経緯を記したものです。"
       },
       sec1:{
         num:"01",label:"趣　旨",
@@ -467,12 +473,14 @@ const SITE = {
       },
       sec2:{
         num:"02",label:"申請に至るまでの経過",
-        body:`本法人の設立発起人は、これまで国内外における教育支援活動や地域活性化プロジェクト、国際交流の促進、また貧困地域における子ども・若者支援など、多様な社会貢献活動に携わってまいりました。特に、フィリピン・ベトナム・カンボジアをはじめとする東南アジア諸国における学校支援・物資提供活動、日本国内における若年層への職業訓練プログラムの提供、地域資源を活用したイベントやワークショップの開催など、分野を超えて実践的な取組みを積み重ねてきました。\n\nこれらの活動を通じて、より継続的かつ広域的に社会課題へ取り組むためには、明確な責任と信頼を担保できる法人格の取得が必要であると強く認識するようになりました。特に、助成金や寄附の受け入れ、他団体との連携や行政との協働においては、個人や任意団体では限界があり、活動の幅と影響力を拡大するうえで法人化が不可欠であると判断しました。\n\n既存のネットワークを活かしつつ、より多くの人々や地域に対して支援を広げていくには、組織としての透明性・継続性・社会的信用が求められるため、特定非営利活動法人としての申請に至ったものです。\n\nグローバルブリッジは、佐賀という地から、世界中の課題に向き合い続けます。一人ひとりの力を結集し、次の世代に誇れる社会を築くため、これからも橋をかけ続けてまいります。`,
+        body:`本法人の設立発起人は、これまで国内外における教育支援活動や地域活性化プロジェクト、国際交流の促進、また貧困地域における子ども・若者支援など、多様な社会貢献活動に携わってまいりました。特に、フィリピンを中心とした学生支援・物資提供活動を本格化させるとともに、国内では学生・若者向けに「海外に挑戦する可能性」をテーマとした講演活動を展開。地域資源を活用したイベントやワークショップの開催など、分野を越えて実践的な取組みを積み重ねてきました。\n\nこれらの活動を通じて、より継続的かつ広域的に社会課題へ取り組むためには、明確な責任と信頼を担保できる法人格の取得が必要であると強く認識するようになりました。特に、助成金や寄附の受け入れ、他団体との連携や行政との協働においては、個人や任意団体では限界があり、活動の幅と影響力を拡大するうえで法人化が不可欠であると判断しました。\n\n既存のネットワークを活かしつつ、より多くの人々や地域に対して支援を広げていくには、組織としての透明性・継続性・社会的信用が求められるため、特定非営利活動法人としての申請に至ったものです。\n\nグローバルブリッジは、佐賀という地から、世界中の課題に向き合い続けます。一人ひとりの力を結集し、次の世代に誇れる社会を築くため、これからも橋をかけ続けてまいります。`,
         timeline:[
           {year:"2020〜",title:"草の根活動の始まり",desc:"国内外での個人・任意団体としての教育支援・地域活性化・国際交流活動をスタート。"},
           {year:"2022〜",title:"東南アジアへの展開",desc:"フィリピンを中心に学生支援や物資提供を本格化。国内では学生・若者向けに海外に挑戦する可能性をテーマとして講演などもスタート。"},
           {year:"2023",title:"法人化を決意",desc:"継続性・信頼性・資金調達基盤の確立に向け、特定非営利活動法人の設立を正式に決議。"},
-          {year:"2024",title:"グローバルブリッジ設立",desc:"佐賀県杵島郡白石町を拠点とする特定非営利活動法人グローバルブリッジ、正式設立。"}
+          {year:"2024",title:"設立準備・活動本格化",desc:"定款の策定、メンバー集め、行政との連携準備など、法人化に向けた組織基盤の整備を進める。"},
+          {year:"2025.12",title:"NPO法人認証申請",desc:"令和7年12月24日、白石町長に対して特定非営利活動法人の認証申請を提出。"},
+          {year:"2026.2",title:"認証取得・正式設立",desc:"令和8年2月16日、白石町長より認証を受け、特定非営利活動法人グローバルブリッジとして正式に設立。"}
         ]
       }
     },
@@ -480,7 +488,7 @@ const SITE = {
       cover:{
         tag:"Statement of Purpose",
         title:"We rose to turn\nborders into bridges.",
-        sub:"Global Bridge NPO was founded in 2024 in Shiroishi-cho, Saga, with a mission to solve social challenges and build a sustainable future. This document sets out the purpose and background of our founding."
+        sub:"Global Bridge NPO was officially certified by the Mayor of Shiroishi-cho on February 16, 2026 (Reiwa 8), with a mission to solve social challenges and build a sustainable future. This document sets out the purpose and background of our founding."
       },
       sec1:{
         num:"01",label:"Purpose",
@@ -494,19 +502,21 @@ const SITE = {
       },
       sec2:{
         num:"02",label:"Background",
-        body:`The founders of Global Bridge have spent years engaged in education support, community revitalization, international exchange, and youth development — both in Japan and abroad. Our hands-on experience spans school-building and supply missions in the Philippines, Vietnam, and Cambodia; vocational training programs for young people in Japan; and community events and workshops drawing on local resources.\n\nThrough this work, we came to understand clearly that addressing social challenges in a sustained and far-reaching way requires a legal entity capable of bearing clear responsibility and earning genuine trust. The limits of informal organizations — in accessing grants, forging partnerships, and collaborating with government — became apparent, and we concluded that formal incorporation was essential to expanding our reach and impact.\n\nBuilding on our existing networks while extending support to more people and communities demands the transparency, continuity, and social credibility that only a registered organization can provide. That conviction led us to apply for nonprofit status.\n\nFrom a small town in Saga, Global Bridge will keep facing the challenges of the world. Bringing together the power of each individual, we will keep building bridges toward a society the next generation can be proud of.`,
+        body:`The founders of Global Bridge have spent years engaged in education support, community revitalization, international exchange, and youth development — both in Japan and abroad. Our hands-on experience spans student support and supply delivery centered on the Philippines; lecture programs for Japanese students and youth on the theme of taking on global challenges; and community events and workshops drawing on local resources.\n\nThrough this work, we came to understand clearly that addressing social challenges in a sustained and far-reaching way requires a legal entity capable of bearing clear responsibility and earning genuine trust. The limits of informal organizations — in accessing grants, forging partnerships, and collaborating with government — became apparent, and we concluded that formal incorporation was essential to expanding our reach and impact.\n\nBuilding on our existing networks while extending support to more people and communities demands the transparency, continuity, and social credibility that only a registered organization can provide. That conviction led us to apply for nonprofit status.\n\nFrom a small town in Saga, Global Bridge will keep facing the challenges of the world. Bringing together the power of each individual, we will keep building bridges toward a society the next generation can be proud of.`,
         timeline:[
           {year:"2020〜",title:"Grassroots beginnings",desc:"Education support, community revitalization, and international exchange begin as individual and informal group activities."},
           {year:"2022〜",title:"Expanding to Southeast Asia",desc:"Expanding student support and supply delivery primarily in the Philippines. In Japan, launched lecture programs for students and youth on the theme of taking on global challenges."},
           {year:"2023",title:"Decision to incorporate",desc:"Formal resolution to establish a nonprofit, building the foundation for continuity, credibility, and funding access."},
-          {year:"2024",title:"Global Bridge founded",desc:"Global Bridge NPO officially established, headquartered in Shiroishi-cho, Kishima-gun, Saga, Japan."}
+          {year:"2024",title:"Foundation building",desc:"Drafting bylaws, gathering members, and preparing organizational structure and government partnerships ahead of formal incorporation."},
+          {year:"2025.12",title:"Certification application filed",desc:"Application for nonprofit status submitted to the Mayor of Shiroishi-cho on December 24, 2025."},
+          {year:"2026.2",title:"Certified — Global Bridge founded",desc:"Official NPO certification issued by the Mayor of Shiroishi-cho on February 16, 2026. Global Bridge NPO formally established."}
         ]
       }
     }
   },
   footer:{
-    jp:{tag:"Bridges, everywhere.",address:"佐賀県杵島郡白石町",copy:"© 2026 Global Bridge NPO. All rights reserved."},
-    en:{tag:"Bridges, everywhere.",address:"Shiroishi-cho, Kishima-gun, Saga, Japan",copy:"© 2026 Global Bridge NPO. All rights reserved."}
+    jp:{tag:"Bridges, everywhere.",address:"〒849-1112 佐賀県杵島郡白石町大字福田2027番地16",copy:"© 2026 Global Bridge NPO. All rights reserved."},
+    en:{tag:"Bridges, everywhere.",address:"2027-16 Fukuda, Shiroishi-cho, Kishima-gun, Saga 849-1112, Japan",copy:"© 2026 Global Bridge NPO. All rights reserved."}
   }
 };
 
@@ -616,6 +626,10 @@ function buildPage(lang){
           <p class="about-loc-label">${esc(ab.locLabel)}</p>
           <div class="about-locations">
             ${ab.locations.map(l=>`<span class="about-loc-chip${l.home?' home':''}">${esc(l.name)}</span>`).join('')}
+          </div>
+          <p class="about-loc-label">${esc(ab.locLabelIntl)}</p>
+          <div class="about-locations">
+            ${ab.locationsIntl.map(l=>`<span class="about-loc-chip intl">${esc(l.name)}</span>`).join('')}
           </div>
           <div class="about-sig">
             <div class="about-sig-line"></div>
